@@ -3,7 +3,7 @@ import { TextField } from '@components/TextField'
 import { SubmitButton } from '@components/SubmitButton'
 import { AppConfig } from '@utils/config'
 
-const TestForm1 = () => {
+export const TestForm1 = () => {
 
   const config = AppConfig()
 
@@ -24,4 +24,3 @@ const TestForm1 = () => {
   )
 }
 
-export default TestForm1
