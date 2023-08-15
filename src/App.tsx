@@ -1,11 +1,11 @@
 import './App.css'
-import FormTextOnly from './forms/FormTextOnly'
+import TestForm1 from '@forms/TestForm1'
 
 function App() {
   return (
     <>
       <h2>T01</h2>
-      <FormTextOnly />
+      <TestForm1 />
     </>
   )
 }
