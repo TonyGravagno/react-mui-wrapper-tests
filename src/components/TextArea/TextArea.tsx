@@ -1,5 +1,4 @@
-import { TextField as MuiTextField } from '@mui/material'
-import { TextFieldProps } from './types'
+import { TextField, TextFieldProps } from '../TextField'
 import { AppConfig } from '@utils/config'
 import { InputHTMLAttributes } from 'react'
 
@@ -24,24 +23,22 @@ const Field = (props: any) => {
  * https://mui.com/material-ui/react-text-field/
  */
 
-export const TextField = (props: TextFieldProps) => {
+export const TextArea = (props: TextFieldProps) => {
   return Field(props)
 }
 
 const MuiField = (props: TextFieldProps) => {
-  // Reasonable defaults : Not necessary, for now stick with MUI defaults
-  const {
-    label = props.label ?? 'Field?',
-    type = props.type ?? 'text',
-    value = props.value ?? '',
-  } = props
-
-  return <MuiTextField {...props} label={label} type={type} value={value} />
-} //      rows={rows}
+  return <TextField {...props} multiline />
+}
 
 const HtmlField = (props: TextFieldProps) => {
   const { label } = props
-  const htmlProps: InputHTMLAttributes<HTMLInputElement> = props
+  type TextAreaProps = Pick<
+    InputHTMLAttributes<HTMLInputElement>,
+    keyof InputHTMLAttributes<HTMLTextAreaElement>
+  >
+  const propSubset: TextAreaProps = props
+  const textAreaProps = propSubset as InputHTMLAttributes<HTMLTextAreaElement>
   return (
     <div>
       {label && (
@@ -49,7 +46,7 @@ const HtmlField = (props: TextFieldProps) => {
           <label>{label}</label>&nbsp;&nbsp;&nbsp;
         </>
       )}
-      <input {...htmlProps} />
+      <textarea {...textAreaProps} />
     </div>
   )
 }

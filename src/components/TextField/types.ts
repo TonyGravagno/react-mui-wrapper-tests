@@ -1,7 +1,9 @@
 import { InputHTMLAttributes } from 'react'
 import { TextFieldProps as MuiTextFieldProps } from '@mui/material'
 
-export type TextFieldProps = {
-  // add params here as required
-} & InputHTMLAttributes<HTMLInputElement> &
-  MuiTextFieldProps
+export type LocalTextFieldProps = {
+}
+export type TextFieldProps = {} &
+InputHTMLAttributes<HTMLInputElement> &
+MuiTextFieldProps &
+LocalTextFieldProps

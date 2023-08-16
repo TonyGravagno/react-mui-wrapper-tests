@@ -1,5 +1,5 @@
 import './App.css'
-import {TestForm1 as TestForm} from '@forms/TestForm1'
+import {TestForm2 as TestForm} from '@forms/TestForm2'
 function App() {
   return (
     <>

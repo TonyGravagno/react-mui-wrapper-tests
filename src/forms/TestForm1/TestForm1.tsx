@@ -4,7 +4,6 @@ import { SubmitButton } from '@components/SubmitButton'
 import { AppConfig } from '@utils/config'
 
 export const TestForm1 = () => {
-
   const config = AppConfig()
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -23,4 +22,3 @@ export const TestForm1 = () => {
     </>
   )
 }
-
