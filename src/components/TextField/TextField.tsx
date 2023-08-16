@@ -1,32 +1,12 @@
 import { TextField as MuiTextField } from '@mui/material'
-import { TextFieldProps } from './types'
-import { AppConfig } from '@utils/config'
+import { BasePropsType, TextFieldProps } from './types'
+import { RenderingAgent } from '@utils/RenderingAgent'
 import { InputHTMLAttributes } from 'react'
-
-/**
- * Consistent for all wrapped fields ?
- */
-
-const Field = (props: any) => {
-  const config = AppConfig()
-
-  switch (config.ui.toolkit) {
-    case 'html':
-      return <HtmlField {...props} />
-    case 'mui':
-      return <MuiField {...props} />
-    default:
-      return null
-  }
-}
+import { getRequiredProps } from '@utils/filterProperties'
 
 /**
  * https://mui.com/material-ui/react-text-field/
  */
-
-export const TextField = (props: TextFieldProps) => {
-  return Field(props)
-}
 
 const MuiField = (props: TextFieldProps) => {
   // Reasonable defaults : Not necessary, for now stick with MUI defaults
@@ -34,22 +14,36 @@ const MuiField = (props: TextFieldProps) => {
     label = props.label ?? 'Field?',
     type = props.type ?? 'text',
     value = props.value ?? '',
+    children = props.children || null,
   } = props
-
-  return <MuiTextField {...props} label={label} type={type} value={value} />
-} //      rows={rows}
+  // Remove anything the MUI field doesn't recognize
+  const requiredProps = getRequiredProps<TextFieldProps, BasePropsType>(props, <TextField />)
+  return (
+    <MuiTextField {...requiredProps} label={label} type={type} value={value}>
+      {children}
+    </MuiTextField>
+  )
+}
 
 const HtmlField = (props: TextFieldProps) => {
-  const { label } = props
-  const htmlProps: InputHTMLAttributes<HTMLInputElement> = props
+  const { children, label } = props
+  // Remove anything the HTML field doesn't recognize
+  const requiredProps = getRequiredProps<TextFieldProps, InputHTMLAttributes<HTMLInputElement>>(
+    props,
+    <input />
+  )
   return (
     <div>
       {label && (
         <>
-          <label>{label}</label>&nbsp;&nbsp;&nbsp;
+          <label>{label}</label>&nbsp;&nbsp;
         </>
       )}
-      <input {...htmlProps} />
+      <input {...requiredProps}>{children}</input>
     </div>
   )
+}
+
+export const TextField = (props: TextFieldProps) => {
+  return RenderingAgent({ html: HtmlField, mui: MuiField })(props)
 }
