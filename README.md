@@ -1,4 +1,4 @@
-# react-mui-wrapper-tests t01
+# react-mui-wrapper-tests t02
 Experiments in React / TypeScript with wrapping MUI components
 
 See [main branch ReadMe](https://github.com/TonyGravagno/react-mui-wrapper-tests/tree/main) for general info
