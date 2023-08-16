@@ -38,6 +38,7 @@ export const TestForm2 = () => {
           label="Text Area2"
           value={textArea}
           onChange={e => setTextArea(e.target.value)}
+          canResize
         />
         <SubmitButton type="submit">Submit</SubmitButton>
       </form>
