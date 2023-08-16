@@ -7,4 +7,7 @@ See [main branch ReadMe](https://github.com/TonyGravagno/react-mui-wrapper-tests
 
 #### Expanding on t03
 
-- Adding a few more components
+- Rather than continuing with TestForm3 for branch t04, I created TestForm04 and will follow that pattern from now on.
+- The property filtering is too aggressive. It's removing valid props. For example, `disabled` on TextField and Input. For now I made that specific test case and some others explicit values, but that shouldn't be the policy for all such properties.
+- Fields aren't accepting input. Something is wrong with the onChange and state settings. \:\(
+- The plan is to fix those issues while adding a few more components.

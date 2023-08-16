@@ -1,6 +1,6 @@
 {
   "ui": {
-    "toolkit" : "mui"
+    "toolkit" : "html"
   },
   "status": "Testing"
 }

@@ -15,18 +15,25 @@ const MuiField = (props: TextFieldProps) => {
     type = props.type ?? 'text',
     value = props.value ?? '',
     children = props.children || null,
+    disabled = props.disabled || false,
   } = props
   // Remove anything the MUI field doesn't recognize
   const requiredProps = getRequiredProps<TextFieldProps, BasePropsType>(props, <TextField />)
   return (
-    <MuiTextField {...requiredProps} label={label} type={type} value={value}>
+    <MuiTextField {...requiredProps} label={label} type={type} value={value} disabled={disabled}>
       {children}
     </MuiTextField>
   )
 }
 
 const HtmlField = (props: TextFieldProps) => {
-  const { children, label } = props
+  const {
+    label = props.label ?? 'Field?',
+    type = props.type ?? 'text',
+    value = props.value ?? '',
+    children = props.children || null,
+    disabled = props.disabled || false,
+  } = props
   // Remove anything the HTML field doesn't recognize
   const requiredProps = getRequiredProps<TextFieldProps, InputHTMLAttributes<HTMLInputElement>>(
     props,
@@ -39,7 +46,7 @@ const HtmlField = (props: TextFieldProps) => {
           <label>{label}</label>&nbsp;&nbsp;
         </>
       )}
-      <input {...requiredProps}>{children}</input>
+      <input {...requiredProps} type={type} value={value} disabled={disabled}>{children}</input>
     </div>
   )
 }

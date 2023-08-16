@@ -1,9 +1,9 @@
 import './App.css'
-import {TestForm2 as TestForm} from '@forms/TestForm2'
+import {TestForm04 as TestForm} from '@forms/TestForm04'
 function App() {
   return (
     <>
-      <h2>T03</h2>
+      <h2>T04</h2>
       <TestForm />
     </>
   )

@@ -8,18 +8,30 @@ import { getRequiredProps } from '@utils/filterProperties'
  */
 
 const MuiField = (props: TextFieldProps) => {
-  const children = props.children || null
+  // Reasonable defaults : Not necessary, for now stick with MUI defaults
+  const {
+    label = props.label ?? 'Field?',
+    type = props.type ?? 'text',
+    value = props.value ?? '',
+    children = props.children || null,
+    disabled = props.disabled || false,
+  } = props
   // Remove anything the MUI field doesn't recognize
   const requiredProps = getRequiredProps<TextFieldProps, BasePropsType>(props, <TextField />)
   return (
-    <TextField {...requiredProps} multiline>
+    <TextField {...requiredProps} multiline label={label} type={type} value={value} disabled={disabled}>
       {children}
     </TextField>
   )
 }
 
 const HtmlField = (props: TextFieldProps) => {
-  const { children, label } = props
+  const {
+    label = props.label ?? 'Field?',
+    value = props.value ?? '',
+    children = props.children || null,
+    disabled = props.disabled || false,
+  } = props
   // Remove anything the HTML field doesn't recognize
   const requiredProps = getRequiredProps<TextFieldProps, InputHTMLAttributes<HTMLTextAreaElement>>(
     props,
@@ -32,7 +44,7 @@ const HtmlField = (props: TextFieldProps) => {
           <label>{label}</label>&nbsp;&nbsp;&nbsp;
         </>
       )}
-      <textarea {...requiredProps}>{children}</textarea>
+      <textarea {...requiredProps} value={value} disabled={disabled}>{children}</textarea>
     </div>
   )
 }
