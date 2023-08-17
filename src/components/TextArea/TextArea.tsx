@@ -5,9 +5,12 @@ import * as D from './dependencies'
  */
 
 const defaults  : D.TextFieldProps = {
-  // label: 'Field?',
-  // type: 'text',
+  label: 'Field?',
+  type: 'text',
   disabled: false,
+  multiline: true,
+  rows: 2,
+  maxRows: 3
 }
 
 const MuiField = (props: D.TextFieldProps) => {
@@ -15,14 +18,14 @@ const MuiField = (props: D.TextFieldProps) => {
 }
 
 const HtmlField = (props: D.TextFieldProps) => {
-  const newProps = D.getRequiredProps<D.TextFieldProps, D.Base['input']>(
+  const newProps = D.getRequiredProps<D.TextFieldProps, D.Base['textarea']>(
     { ...defaults, ...props },
-    <input />
+    <textarea />
   )
   return (
     <div>
       <D.Label label={props.label} />
-      <input {...newProps} />
+      <textarea {...newProps} />
     </div>
   )
 }
