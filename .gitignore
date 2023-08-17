@@ -131,3 +131,4 @@ dist
 
 # local details
 _ignore
+src/app.config.json
