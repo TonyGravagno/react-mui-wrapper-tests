@@ -12,6 +12,7 @@
       "@components/*": ["./components/*"],
       "@forms/*": ["./forms/*"],
       "@utils/*": ["./utils/*"],
+      "@types/*": ["./types/*"],
     },
     /* Bundler mode */
     "moduleResolution": "bundler",
