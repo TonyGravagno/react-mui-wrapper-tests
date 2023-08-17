@@ -1,1 +1,2 @@
-export type { Base } from '../../types/commonTypes'
+// Required directly by @components/Name/Name.tsx
+export * from './types'

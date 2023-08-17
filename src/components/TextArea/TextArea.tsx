@@ -1,66 +1,94 @@
-import { BasePropsType, TextField, TextFieldProps } from '../TextField'
-import { RenderingAgent } from '@utils/RenderingAgent'
-import { InputHTMLAttributes } from 'react'
-import { getRequiredProps } from '@utils/filterProperties'
+import * as D from './dependencies'
 
 /**
  * https://mui.com/material-ui/react-text-field/
  */
 
-const MuiField = (props: TextFieldProps) => {
-  // Reasonable defaults : Not necessary, for now stick with MUI defaults
-  const {
-    label = props.label ?? 'Field?',
-    type = props.type ?? 'text',
-    value = props.value ?? '',
-    children = props.children || null,
-    disabled = props.disabled || false,
-  } = props
-  // Remove anything the MUI field doesn't recognize
-  const requiredProps = getRequiredProps<TextFieldProps, BasePropsType>(props, <TextField />)
-  return (
-    <TextField {...requiredProps} multiline label={label} type={type} value={value} disabled={disabled}>
-      {children}
-    </TextField>
-  )
+const defaults  : D.TextFieldProps = {
+  // label: 'Field?',
+  // type: 'text',
+  disabled: false,
 }
 
-const HtmlField = (props: TextFieldProps) => {
-  const {
-    label = props.label ?? 'Field?',
-    value = props.value ?? '',
-    children = props.children || null,
-    disabled = props.disabled || false,
-  } = props
-  // Remove anything the HTML field doesn't recognize
-  const requiredProps = getRequiredProps<TextFieldProps, InputHTMLAttributes<HTMLTextAreaElement>>(
-    props,
-    <textarea />
+const MuiField = (props: D.TextFieldProps) => {
+  return <D.MuiTextField {...defaults} {...props} />
+}
+
+const HtmlField = (props: D.TextFieldProps) => {
+  const newProps = D.getRequiredProps<D.TextFieldProps, D.Base['input']>(
+    { ...defaults, ...props },
+    <input />
   )
   return (
     <div>
-      {label && (
-        <>
-          <label>{label}</label>&nbsp;&nbsp;&nbsp;
-        </>
-      )}
-      <textarea {...requiredProps} value={value} disabled={disabled}>{children}</textarea>
+      <D.Label label={props.label} />
+      <input {...newProps} />
     </div>
   )
 }
 
-export const TextArea = (props: TextFieldProps) => {
-  return RenderingAgent({ html: HtmlField, mui: MuiField })(props)
+/**
+ * Wrapper for TextArea, TextField, and related controls internally invokes MuiTextField or React.input
+ * @param props
+ * @returns 
+ */
+export const TextArea = (props: D.TextFieldProps) => {
+  return D.RenderingAgent({ html: HtmlField, mui: MuiField })(props)
 }
 
-/*
-  // type TextAreaProps = Pick<
-  //   InputHTMLAttributes<HTMLInputElement>,
-  //   keyof InputHTMLAttributes<HTMLTextAreaElement>
-  // >
-  // type LessTextAreaProps = Exclude<TextAreaProps,LocalTextFieldProps>
-//const textAreaProps = props as InputHTMLAttributes<HTMLTextAreaElement>
-//  const textAreaProps = propSubset as LessTextAreaProps as InputHTMLAttributes<HTMLTextAreaElement>
-  //const textAreaProps2 = filterProperties(props, textAreaProps);
-const filteredProps = filterProperties(textAreaProps,sampleProps)
- */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import * as D from './dependencies'
+
+// /**
+//  * https://mui.com/material-ui/react-text-field/
+//  */
+
+// const defaults : D.TextFieldProps = {
+//   // label: 'Field?',
+//   // type: 'text',
+//   // disabled: false,
+//   multiline: true,
+// }
+
+// const MuiField = (props: D.TextFieldProps) => {
+//   return <D.MuiTextField {...defaults} {...props} />
+// }
+
+// const HtmlField = (props: D.TextFieldProps) => {
+//   const newProps = D.getRequiredProps<D.TextFieldProps, D.Base['input']>(
+//     { ...defaults, ...props },
+//     <input />
+//   )
+//   return (
+//     <div>
+//       <D.Label label={props.label} />
+//       <input {...newProps} />
+//     </div>
+//   )
+// }
+
+// /**
+//  * Wrapper for TextArea internally invokes MuiTextField or React.textarea
+//  * @param props 
+//  * @returns 
+//  */
+// export const TextArea = (props: D.TextFieldProps) => {
+//   return D.RenderingAgent({ html: HtmlField, mui: MuiField })(props)
+// }

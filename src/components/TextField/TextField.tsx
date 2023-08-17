@@ -1,56 +1,37 @@
-import { TextField as MuiTextField } from '@mui/material'
-import { BasePropsType, TextFieldProps } from './types'
-import { RenderingAgent } from '@utils/RenderingAgent'
-import { InputHTMLAttributes } from 'react'
-import { getRequiredProps } from '@utils/filterProperties'
+import * as D from './dependencies'
 
 /**
  * https://mui.com/material-ui/react-text-field/
  */
 
-const MuiField = (props: TextFieldProps) => {
-  // Reasonable defaults : Not necessary, for now stick with MUI defaults
-  const {
-    label = props.label ?? 'Field?',
-    type = props.type ?? 'text',
-    value = props.value ?? '',
-    children = props.children || null,
-    disabled = props.disabled || false,
-  } = props
-  // Remove anything the MUI field doesn't recognize
-  const requiredProps = getRequiredProps<TextFieldProps, BasePropsType>(props, <TextField />)
-  return (
-    <MuiTextField {...requiredProps} label={label} type={type} value={value} disabled={disabled}>
-      {children}
-    </MuiTextField>
-  )
+const defaults  : D.TextFieldProps = {
+  // label: 'Field?',
+  // type: 'text',
+  disabled: false,
 }
 
-const HtmlField = (props: TextFieldProps) => {
-  const {
-    label = props.label ?? 'Field?',
-    type = props.type ?? 'text',
-    value = props.value ?? '',
-    children = props.children || null,
-    disabled = props.disabled || false,
-  } = props
-  // Remove anything the HTML field doesn't recognize
-  const requiredProps = getRequiredProps<TextFieldProps, InputHTMLAttributes<HTMLInputElement>>(
-    props,
+const MuiField = (props: D.TextFieldProps) => {
+  return <D.MuiTextField {...defaults} {...props} />
+}
+
+const HtmlField = (props: D.TextFieldProps) => {
+  const newProps = D.getRequiredProps<D.TextFieldProps, D.Base['input']>(
+    { ...defaults, ...props },
     <input />
   )
   return (
     <div>
-      {label && (
-        <>
-          <label>{label}</label>&nbsp;&nbsp;
-        </>
-      )}
-      <input {...requiredProps} type={type} value={value} disabled={disabled}>{children}</input>
+      <D.Label label={props.label} />
+      <input {...newProps} />
     </div>
   )
 }
 
-export const TextField = (props: TextFieldProps) => {
-  return RenderingAgent({ html: HtmlField, mui: MuiField })(props)
+/**
+ * Wrapper for TextArea, TextField, and related controls internally invokes MuiTextField or React.input
+ * @param props
+ * @returns 
+ */
+export const TextField = (props: D.TextFieldProps) => {
+  return D.RenderingAgent({ html: HtmlField, mui: MuiField })(props)
 }
