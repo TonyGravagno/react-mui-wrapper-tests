@@ -3,6 +3,7 @@ import { TextField } from '@components/TextField'
 import { TextArea } from '@components/TextArea'
 import { SubmitButton } from '@components/SubmitButton'
 import { AppConfig } from '@utils/config'
+import { Label } from '@components/Label'
 
 export const TestForm04 = () => {
   const config = AppConfig()
@@ -19,9 +20,10 @@ export const TestForm04 = () => {
   return (
     <>
       <h4>{config.status}</h4>
+        <Label>Hello Label!</Label>
       <form onSubmit={handleSubmit}>
         <TextField
-          label="Username"
+          label={<Label>UserName!</Label>}
           type="text"
           value={username}
           onChange={e => setUsername(e.target.value)}
@@ -34,12 +36,12 @@ export const TestForm04 = () => {
         />
         <br />
         <TextArea
-          label="Text Area2"
+          label="Text Area"
           value={textArea}
           onChange={e => setTextArea(e.target.value)}
-          canResize
         />
-        <SubmitButton>Submit1</SubmitButton>
+        <SubmitButton/>
+        <SubmitButton>NonDefault</SubmitButton>
       </form>
     </>
   )
