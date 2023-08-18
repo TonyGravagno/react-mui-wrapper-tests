@@ -4,14 +4,14 @@ import * as D from './dependencies'
  * https://mui.com/material-ui/react-text-field/
  */
 
-const defaults  : D.TextFieldProps = {
+const defaults: D.TextFieldProps = {
   // label: 'Field?',
   // type: 'text',
   disabled: false,
 }
 
 const MuiField = (props: D.TextFieldProps) => {
-  return <D.MuiTextField {...defaults} {...props} />
+  return <D.Default.MuiField {...props} />
 }
 
 const HtmlField = (props: D.TextFieldProps) => {
@@ -22,7 +22,7 @@ const HtmlField = (props: D.TextFieldProps) => {
   return (
     <div>
       <D.Label label={props.label} />
-      <input {...newProps} />
+      <D.Default.HtmlField {...newProps} />
     </div>
   )
 }
@@ -30,7 +30,7 @@ const HtmlField = (props: D.TextFieldProps) => {
 /**
  * Wrapper for TextArea, TextField, and related controls internally invokes MuiTextField or React.input
  * @param props
- * @returns 
+ * @returns
  */
 export const TextField = (props: D.TextFieldProps) => {
   return D.RenderingAgent({ html: HtmlField, mui: MuiField })(props)
