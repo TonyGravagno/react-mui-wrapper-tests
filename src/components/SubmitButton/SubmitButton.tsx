@@ -12,7 +12,7 @@ const defaults: D.SubmitButtonProps = {
 }
 
 const MuiField = (props: D.SubmitButtonProps) => {
-  return <D.MuiButton {...defaults} {...props} />
+  return <D.Default.MuiField {...props} />
 }
 
 const HtmlField = (props: D.SubmitButtonProps) => {
@@ -20,7 +20,8 @@ const HtmlField = (props: D.SubmitButtonProps) => {
     { ...defaults, ...props },
     <button />
   )
-  return <button {...newProps}>{props.children ?? defaults.children}</button>
+  return <D.Default.HtmlField {...newProps} />
+  // <button {...newProps}>{props.children ?? defaults.children}</button>
 }
 
 export const SubmitButton = (props: D.SubmitButtonProps) => {
