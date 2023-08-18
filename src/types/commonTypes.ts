@@ -1,4 +1,2 @@
-/**
- * Allows easy access to React types : Base['ComponentName']
- */
-export type Base = React.JSX.IntrinsicElements
+// nothing here yet
+// Anything that refers to this will fail until this exports something
