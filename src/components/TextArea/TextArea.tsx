@@ -14,7 +14,7 @@ const defaults  : D.TextFieldProps = {
 }
 
 const MuiField = (props: D.TextFieldProps) => {
-  return <D.MuiTextField {...defaults} {...props} />
+  return <D.Default.MuiField {...props} />
 }
 
 const HtmlField = (props: D.TextFieldProps) => {
@@ -25,7 +25,7 @@ const HtmlField = (props: D.TextFieldProps) => {
   return (
     <div>
       <D.Label label={props.label} />
-      <textarea {...newProps} />
+      <D.Default.HtmlField {...newProps} />
     </div>
   )
 }
