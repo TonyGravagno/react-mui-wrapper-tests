@@ -1,9 +1,20 @@
-# react-mui-wrapper-tests t05
+# react-mui-wrapper-tests t05a_bad
 Experiments in React / TypeScript with wrapping MUI components
 
 See [main branch ReadMe](https://github.com/TonyGravagno/react-mui-wrapper-tests/tree/main) for general info
 
-### Branch t05 2023/08/17
+### Branch t05a_bad 2023/08/18
+
+Before moving on to t06 from the good t05, I experimented with enhancing the config file with default settings.  
+That was a mistake and this t05a branch is "\_bad".
+
+In TextField\\types.ts I also demonstrate how the type merging mechanism is broken. This is where I combine props from Mui and HTML (React components) so that controls in forms can use props from either. I need to rework that in t06.
+
+Bottom line, ignore this branch except to learn (in diffs) from the failed code that was applied to the working t05.
+
+
+
+**From t05 :**
 
 #### Rework wrappers from t04
 
