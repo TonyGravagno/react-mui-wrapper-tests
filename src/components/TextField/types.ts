@@ -10,3 +10,8 @@ export type LocalTextFieldProps = {
 }
 
 export type TextFieldProps = BasePropsType & LocalTextFieldProps
+
+type test1 = MuiTextFieldProps['size']
+type test2 = Base['input']['size']
+type test3 = BasePropsType['size']
+type test4 = TextFieldProps['size']
