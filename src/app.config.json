@@ -1,6 +1,15 @@
 {
   "ui": {
-    "toolkit" : "html"
+    "toolkit": "mui"
   },
-  "status": "Testing"
+  "status": "testing",
+  "defaults": {
+    "button_variant": "contained",
+    "text_variant": "standard",
+    "button_size": "small",
+    "text_size": "medium",
+    "SubmitButton_children": "Click me!",
+    "TextArea_rows": 3,
+    "TextArea_maxRows": 3
+  }
 }
