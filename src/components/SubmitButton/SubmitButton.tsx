@@ -3,6 +3,7 @@ import * as D from './dependencies'
 /**
  * https://mui.com/material-ui/react-button/
  */
+const config = D.AppConfig()
 
 const defaults: D.SubmitButtonProps = {
   type: 'submit',

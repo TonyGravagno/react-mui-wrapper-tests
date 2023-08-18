@@ -3,14 +3,15 @@ import * as D from './dependencies'
 /**
  * https://mui.com/material-ui/react-text-field/
  */
+const config = D.AppConfig()
 
 const defaults  : D.TextFieldProps = {
-  label: 'Field?',
+  size: config.defaults.size,
+  variant: config.defaults.variant,
   type: 'text',
-  disabled: false,
   multiline: true,
-  rows: 2,
-  maxRows: 3
+  rows: config.defaults.TextArea_rows,
+  maxRows: config.defaults.TextArea_maxRows
 }
 
 const MuiField = (props: D.TextFieldProps) => {
