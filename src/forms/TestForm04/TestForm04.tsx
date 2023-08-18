@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { TextField } from '@components/TextField'
 import { TextArea } from '@components/TextArea'
 import { SubmitButton } from '@components/SubmitButton'
-import { AppConfig } from '@utils/config'
+import { AppConfig } from '@root/utils/config/config'
 import { Label } from '@components/Label'
 
 export const TestForm04 = () => {

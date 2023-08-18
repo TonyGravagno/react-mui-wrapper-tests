@@ -1,4 +1,4 @@
-import { AppConfig } from '@utils/config'
+import { AppConfig } from '@root/utils/config/config'
 
 type CommonComponent<T> = (props: T) => JSX.Element
 
