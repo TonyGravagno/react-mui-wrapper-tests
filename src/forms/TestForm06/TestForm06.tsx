@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { TextField } from '@components/Library/TextField'
-import { TextArea } from '@components/Library/TextArea'
-import { SubmitButton } from '@components/Library/SubmitButton'
+import { TextField } from '@components/TextField'
+import { TextArea } from '@components/TextArea'
+import { SubmitButton } from '@components/SubmitButton'
+import { Label } from '@components/Label'
 import { AppConfig } from '@utils/config'
-import { Label } from '@components/Library/Label'
 
 export const TestForm06 = () => {
   const config = AppConfig()
