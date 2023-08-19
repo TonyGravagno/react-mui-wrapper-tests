@@ -20,21 +20,22 @@ export type AppConfigJson = {
   status: string
 }
 
+
 export const config: AppConfigJson = {
   ui: {
     toolkit: 'react',
     id_name: 'dunno',
-    button_variant: 'contained',
-    text_variant: 'standard',
-    button_size: 'medium',
-    text_size: 'medium',
+    button_variant: 'outlined',
+    text_variant: 'outlined',
+    button_size: 'small',
+    text_size: 'small',
     textarea_maxRows: 5,
     textarea_rows: 3,
     textarea_minLength: 1,
     textarea_maxLength: 20,
     input_minLength: 0,
     input_maxLength: 80,
-    submit_text: 'Click Me...'
+    submit_text: 'Subbit!'
   },
   status: 'Testing',
 }
