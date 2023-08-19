@@ -1,4 +1,6 @@
 import { TextFieldProps as MuiProps } from '@mui/material'
+import { AppConfig } from '@utils/config'
+const config = AppConfig()
 type ReactProps = React.JSX.IntrinsicElements['textarea']
 type TextAreaProps = ReactProps & MuiProps
 
@@ -10,11 +12,11 @@ export const TextArea = (props: TextAreaProps) => {
     <div>
       {labelComponent ?? null}
       <textarea
-        rows={2}
-        minLength={1}
-        maxLength={2000}
         id="unknown"
         name="unknown"
+        rows={config.ui.textarea_rows}
+        minLength={config.ui.textarea_minLength}
+        maxLength={config.ui.textarea_maxLength}
         {...reactProps}
       />
     </div>

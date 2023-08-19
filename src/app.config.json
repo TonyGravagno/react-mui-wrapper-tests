@@ -1,9 +1,14 @@
 {
   "ui": {
-    "toolkit" : "html",
-    "text_variant" : "standard",
-    "text_size" : "medium",
-    "textarea_maxRows" : 5
+    "toolkit": "html",
+    "text_variant": "standard",
+    "text_size": "medium",
+    "textarea_maxRows": 5,
+    "textarea_rows": 3,
+    "textarea_minLength": 1,
+    "textarea_maxLength": 20,
+    "input_minLength": 0,
+    "input_maxLength": 80
   },
   "status": "Testing"
 }
