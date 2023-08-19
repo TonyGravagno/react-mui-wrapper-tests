@@ -1,7 +1,7 @@
 import { InputLabel as MuiLabel } from '@mui/material'
 import { InputLabelProps as MuiProps } from '@mui/material'
 type ReactProps = React.JSX.IntrinsicElements['label']
-type LabelProps = ReactProps | MuiProps
+type LabelProps = ReactProps & MuiProps
 
 export const Label = (props: LabelProps) => {
 //  const reactProps = props as ReactProps

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import { TextField } from '@components/Library/TextField'
-import { TextArea } from '@components/Library/TextArea'
-import { SubmitButton } from '@components/Library/SubmitButton'
+import { TextField } from '@components/TextField'
+import { TextArea } from '@components/TextArea'
+import { SubmitButton } from '@components/SubmitButton'
 import { AppConfig } from '@utils/config'
 
 export const TestForm2 = () => {

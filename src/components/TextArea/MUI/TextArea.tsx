@@ -1,9 +1,11 @@
 import { TextField as MuiTextField, TextFieldProps as MuiProps } from '@mui/material'
 type ReactProps = React.JSX.IntrinsicElements['textarea']
-type TextAreaProps = ReactProps | MuiProps
+type TextAreaProps = ReactProps & MuiProps
 
 export const TextArea = (props: TextAreaProps) => {
+  //TextAreaProps
   const muiProps = props as MuiProps
+
   return (
     <MuiTextField
       type="textarea"

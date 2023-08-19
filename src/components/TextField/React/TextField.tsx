@@ -1,6 +1,6 @@
 import { TextFieldProps as MuiProps } from '@mui/material'
 type ReactProps = React.JSX.IntrinsicElements['input']
-type TextFieldProps = ReactProps | MuiProps
+type TextFieldProps = ReactProps & MuiProps
 
 export const TextField = (props: TextFieldProps) => {
   const reactProps = props as ReactProps
