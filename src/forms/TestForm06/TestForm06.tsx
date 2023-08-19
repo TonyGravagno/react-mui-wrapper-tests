@@ -3,8 +3,7 @@ import { TextField } from '@components/TextField'
 import { TextArea } from '@components/TextArea'
 import { SubmitButton } from '@components/SubmitButton'
 import { Label } from '@components/Label'
-import { AppConfig } from '@utils/config'
-const config = AppConfig()
+import { config } from '@root/app.config'
 
 export const TestForm06 = () => {
 

@@ -2,10 +2,9 @@ import React, { useState } from 'react'
 import { TextField } from '@components/TextField'
 import { TextArea } from '@components/TextArea'
 import { SubmitButton } from '@components/SubmitButton'
-import { AppConfig } from '@utils/config'
+import { config } from '@root/app.config'
 
 export const TestForm2 = () => {
-  const config = AppConfig()
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -40,7 +39,7 @@ export const TestForm2 = () => {
           onChange={e => setTextArea(e.target.value)}
           // canResize
         />
-        <SubmitButton>Submit</SubmitButton>
+        <SubmitButton />
       </form>
     </>
   )

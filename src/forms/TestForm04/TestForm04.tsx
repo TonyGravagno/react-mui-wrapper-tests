@@ -2,11 +2,10 @@ import React, { useState } from 'react'
 import { TextField } from '@components/TextField'
 import { TextArea } from '@components/TextArea'
 import { SubmitButton } from '@components/SubmitButton'
-import { AppConfig } from '@utils/config'
 import { Label } from '@components/Label'
+import { config } from '@root/app.config'
 
 export const TestForm04 = () => {
-  const config = AppConfig()
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()

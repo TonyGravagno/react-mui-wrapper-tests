@@ -1,6 +1,5 @@
 import { TextFieldProps as MuiProps } from '@mui/material'
-import { AppConfig } from '@utils/config'
-const config = AppConfig()
+import { config } from '@root/app.config'
 type ReactProps = React.JSX.IntrinsicElements['input']
 type TextFieldProps = ReactProps & MuiProps
 
@@ -15,8 +14,8 @@ export const TextField = (props: TextFieldProps) => {
         type="text"
         minLength={config.ui.input_minLength}
         maxLength={config.ui.input_maxLength}
-        id="unknown"
-        name="unknown"
+        id={config.ui.id_name}
+        name={config.ui.id_name}
         {...reactProps}
       />
     </div>
