@@ -132,3 +132,5 @@ dist
 # local details
 _ignore
 src/app.config.json
+vite.config.js
+vite.config.d.ts
