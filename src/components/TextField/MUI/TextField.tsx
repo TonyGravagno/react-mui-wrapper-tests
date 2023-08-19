@@ -1,4 +1,6 @@
 import { TextField as MuiTextField, TextFieldProps as MuiProps } from '@mui/material'
+import { AppConfig } from '@utils/config'
+const config = AppConfig()
 type ReactProps = React.JSX.IntrinsicElements['input']
 type TextFieldProps = ReactProps & MuiProps
 
@@ -9,8 +11,8 @@ export const TextField = (props: TextFieldProps) => {
       type="text"
       id="unknown"
       name="unknown"
-      size="medium"
-      variant="standard"
+      size={config.ui.text_size}
+      variant={config.ui.text_variant}
       {...muiProps}
     />
   )

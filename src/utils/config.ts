@@ -1,8 +1,12 @@
 import config from '@root/app.config.json'
+import { TextFieldProps } from '@mui/material'
 
 export interface AppConfigJson {
   ui: {
     toolkit: 'mui' | 'html'
+    text_variant: TextFieldProps['variant']
+    text_size: TextFieldProps['size']
+    textarea_maxRows: TextFieldProps['maxRows']
   }
   status: string
 }

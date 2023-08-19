@@ -1,6 +1,9 @@
 {
   "ui": {
-    "toolkit" : "html"
+    "toolkit" : "html",
+    "text_variant" : "standard",
+    "text_size" : "medium",
+    "textarea_maxRows" : 5
   },
   "status": "Testing"
 }

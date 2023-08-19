@@ -4,9 +4,9 @@ import { TextArea } from '@components/TextArea'
 import { SubmitButton } from '@components/SubmitButton'
 import { Label } from '@components/Label'
 import { AppConfig } from '@utils/config'
+const config = AppConfig()
 
 export const TestForm06 = () => {
-  const config = AppConfig()
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
