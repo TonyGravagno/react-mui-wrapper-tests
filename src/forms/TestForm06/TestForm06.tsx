@@ -6,10 +6,8 @@ import { Label } from '@components/Label'
 import { config } from '@root/app.config'
 
 export const TestForm06 = () => {
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission logic here
   }
 
   const [username, setUsername] = useState('')
@@ -19,10 +17,10 @@ export const TestForm06 = () => {
   return (
     <>
       <h4>{config.status}</h4>
-        <Label>Hello Label!</Label>
+      <Label>Hello Label</Label>
       <form onSubmit={handleSubmit}>
         <TextField
-          label={<Label>UserName!</Label>}
+          label={<Label>UserName</Label>}
           type="text"
           value={username}
           onChange={e => setUsername(e.target.value)}
@@ -34,12 +32,8 @@ export const TestForm06 = () => {
           onChange={e => setPassword(e.target.value)}
         />
         <br />
-        <TextArea
-          label="Text Area"
-          value={textArea}
-          onChange={e => setTextArea(e.target.value)}
-        />
-        <SubmitButton/>
+        <TextArea label="Text Area" value={textArea} onChange={e => setTextArea(e.target.value)} />
+        <SubmitButton />
         <SubmitButton>NonDefault</SubmitButton>
       </form>
     </>
