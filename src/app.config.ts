@@ -19,12 +19,15 @@ export type AppConfigJson = {
     id_name: string
   }
   styles: {
-    labelledControl: CSS.Properties,
-    submitButton: CSS.Properties,
-    formContainer: CSS.Properties,
-    formFieldRow: CSS.Properties,
-    formFieldLabel: CSS.Properties,
-    formFieldInput: CSS.Properties,
+    react: {
+      labelledControl: CSS.Properties
+      submitButton: CSS.Properties
+      formContainer: CSS.Properties
+      formFieldRow: CSS.Properties
+      formFieldLabel: CSS.Properties
+      formFieldInput: CSS.Properties
+    }
+    mui: {}
   }
   status: string
 }
@@ -46,34 +49,37 @@ export const config: AppConfigJson = {
     submit_text: 'Subbit!',
   },
   styles: {
-    labelledControl: {
-      display: 'flex',
-      alignItems: 'flex-start',
+    react: {
+      labelledControl: {
+        display: 'flex',
+        alignItems: 'flex-start',
+      },
+      submitButton: {
+        margin: '5px',
+      },
+      formContainer: {
+        borderWidth: '2px',
+        borderStyle: 'inset',
+        margin: '5px',
+        padding: '5px',
+      },
+      formFieldRow: {
+        display: 'flex',
+        alignItems: 'flex-start',
+      },
+      formFieldLabel: {
+        marginRight: '5px',
+        verticalAlign: 'text-bottom',
+        textAlign: 'left',
+        color: 'green',
+        width: '40%',
+      },
+      formFieldInput: {
+        textAlign: 'left',
+        width: '60%',
+      },
     },
-    submitButton: {
-      margin: '5px'
-    },
-    formContainer: {
-      borderWidth: '2px',
-      borderStyle: 'inset',
-      margin: '5px',
-      padding: '5px'
-    },
-    formFieldRow: {
-      display: 'flex',
-      alignItems: 'flex-start',
-    },
-    formFieldLabel: {
-//      marginRight: '20px',
-      verticalAlign: 'text-bottom',
-      textAlign: 'left',
-      color: 'green',
-      width: '40%'
-    },
-    formFieldInput: {
-      textAlign: 'left',
-      width: '60%'
-    },
+    mui: {},
   },
   status: 'Testing',
 }

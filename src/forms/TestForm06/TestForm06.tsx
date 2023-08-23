@@ -18,7 +18,7 @@ export const TestForm06 = () => {
     <>
       <h4>{config.status}</h4>
       <Label>Hello Label</Label>
-      <form onSubmit={handleSubmit} style={config.styles.formContainer}>
+      <form onSubmit={handleSubmit} style={config.styles.react.formContainer}>
         <TextField
           label={<Label>UserName</Label>}
           type="text"
