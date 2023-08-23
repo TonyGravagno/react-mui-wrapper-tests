@@ -20,3 +20,22 @@ switch (config.ui.toolkit) {
     break
 }
 export const Label = C0
+
+export const getLabelForComponent = (field: React.ReactNode) => {
+  const type = typeof field
+  switch (type) {
+    case 'string':
+    case 'number':
+    case 'bigint':
+    case 'boolean':
+      return <Label>{field}</Label>
+    case 'function':
+    case 'object':
+    case 'symbol':
+      return field
+    case 'undefined':
+      return null
+    default:
+      throw new Error('Unknown label type')
+  }
+}
