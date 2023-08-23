@@ -1,11 +1,16 @@
-import { InputLabelProps as MuiProps } from '@mui/material'
-type ReactProps = React.JSX.IntrinsicElements['label']
-type LabelProps = ReactProps & MuiProps
-
+import { LabelProps, ReactProps } from '..'
+import CSS from 'csstype'
+const spanStyle: CSS.Properties = {
+  marginRight: '23px',
+  verticalAlign: 'text-bottom',
+  color: 'blue',
+}
 export const Label = (props: LabelProps) => {
   const reactProps = props as ReactProps
-//  const muiProps = props as MuiProps
+  //  const muiProps = props as MuiProps
   return (
-    <label {...reactProps} />
+    <span style={spanStyle}>
+      <label {...reactProps} />
+    </span>
   )
 }
