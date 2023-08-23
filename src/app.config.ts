@@ -1,4 +1,5 @@
 import { TextFieldProps, ButtonProps } from '@mui/material'
+import CSS from 'csstype'
 type ReactProps = React.JSX.IntrinsicElements
 
 export type AppConfigJson = {
@@ -14,12 +15,14 @@ export type AppConfigJson = {
     textarea_minLength: ReactProps['textarea']['minLength']
     textarea_maxLength: ReactProps['textarea']['maxLength']
     textarea_rows: ReactProps['textarea']['rows']
-    submit_text : string
-    id_name : string
+    submit_text: string
+    id_name: string
+  }
+  styles: {
+    labelledControl: CSS.Properties
   }
   status: string
 }
-
 
 export const config: AppConfigJson = {
   ui: {
@@ -35,7 +38,14 @@ export const config: AppConfigJson = {
     textarea_maxLength: 20,
     input_minLength: 0,
     input_maxLength: 80,
-    submit_text: 'Subbit!'
+    submit_text: 'Subbit!',
+  },
+  styles: {
+    labelledControl: {
+      marginRight: '2px',
+      verticalAlign: 'text-top',
+      textAlign: 'start',
+    },
   },
   status: 'Testing',
 }

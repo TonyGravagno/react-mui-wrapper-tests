@@ -1,12 +1,7 @@
 import { TextFieldProps as MuiProps } from '@mui/material'
 import { getLabelForComponent } from '@components/Label'
 import { config } from '@root/app.config'
-import CSS from 'csstype'
-const spanStyle : CSS.Properties = {
-  marginRight: '23px',
-  verticalAlign: 'text-top',
-  textAlign: 'start'
-}
+
 type ReactProps = React.JSX.IntrinsicElements['textarea']
 type TextAreaProps = ReactProps & MuiProps
 
@@ -15,7 +10,7 @@ export const TextArea = (props: TextAreaProps) => {
   const muiProps = props as MuiProps
   const labelComponent = getLabelForComponent(muiProps.label)
   return (
-    <div style={spanStyle}>
+    <div style={config.styles.labelledControl}>
       {labelComponent}
       <textarea
         id={config.ui.id_name}
