@@ -10,9 +10,9 @@ export const TextArea = (props: TextAreaProps) => {
   const muiProps = props as MuiProps
   const labelComponent = getLabelForComponent(muiProps.label)
   return (
-    <div style={config.styles.labelledControl}>
+    <div style={config.styles.formFieldRow}>
       {labelComponent}
-      <textarea
+      <textarea style={config.styles.formFieldInput}
         id={config.ui.id_name}
         name={config.ui.id_name}
         rows={config.ui.textarea_rows}

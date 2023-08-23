@@ -1,16 +1,11 @@
 import { LabelProps, ReactProps } from '..'
-import CSS from 'csstype'
-const spanStyle: CSS.Properties = {
-  marginRight: '23px',
-  verticalAlign: 'text-bottom',
-  color: 'blue',
-}
+//import CSS from 'csstype'
+import { config } from '@root/app.config'
+
 export const Label = (props: LabelProps) => {
   const reactProps = props as ReactProps
   //  const muiProps = props as MuiProps
   return (
-    <span style={spanStyle}>
-      <label {...reactProps} />
-    </span>
+      <label style={config.styles.formFieldLabel} {...reactProps} />
   )
 }

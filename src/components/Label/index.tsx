@@ -21,14 +21,20 @@ switch (config.ui.toolkit) {
 }
 export const Label = C0
 
-export const getLabelForComponent = (field: React.ReactNode) => {
+type LabelForComponentOptions = {
+  props?: LabelProps
+}
+export const getLabelForComponent = (
+  field: React.ReactNode,
+  options?: LabelForComponentOptions
+) => {
   const type = typeof field
   switch (type) {
     case 'string':
     case 'number':
     case 'bigint':
     case 'boolean':
-      return <Label>{field}</Label>
+      return <Label {...(options?.props ?? {})}>{field}</Label>
     case 'function':
     case 'object':
     case 'symbol':

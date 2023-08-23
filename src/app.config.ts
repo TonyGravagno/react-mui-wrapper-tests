@@ -19,7 +19,12 @@ export type AppConfigJson = {
     id_name: string
   }
   styles: {
-    labelledControl: CSS.Properties
+    labelledControl: CSS.Properties,
+    submitButton: CSS.Properties,
+    formContainer: CSS.Properties,
+    formFieldRow: CSS.Properties,
+    formFieldLabel: CSS.Properties,
+    formFieldInput: CSS.Properties,
   }
   status: string
 }
@@ -42,10 +47,37 @@ export const config: AppConfigJson = {
   },
   styles: {
     labelledControl: {
-      marginRight: '2px',
-      verticalAlign: 'text-top',
-      textAlign: 'start',
+      display: 'flex',
+      alignItems: 'flex-start',
+    },
+    submitButton: {
+      margin: '5px'
+    },
+    formContainer: {
+      borderWidth: '2px',
+      borderStyle: 'inset',
+      margin: '5px',
+      padding: '5px'
+    },
+    formFieldRow: {
+      display: 'flex',
+      alignItems: 'flex-start',
+    },
+    formFieldLabel: {
+//      marginRight: '20px',
+      verticalAlign: 'text-bottom',
+      textAlign: 'left',
+      color: 'green',
+      width: '40%'
+    },
+    formFieldInput: {
+      textAlign: 'left',
+      width: '60%'
     },
   },
   status: 'Testing',
 }
+
+// marginRight: '342px',
+// verticalAlign: 'text-top',
+// textAlign: 'start',

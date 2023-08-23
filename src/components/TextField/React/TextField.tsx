@@ -9,9 +9,9 @@ export const TextField = (props: TextFieldProps) => {
   const muiProps = props as MuiProps
   const labelComponent = getLabelForComponent(muiProps.label)
   return (
-    <div>
+    <div style={config.styles.formFieldRow}>
       {labelComponent}
-      <input
+      <input style={config.styles.formFieldInput}
         type="text"
         minLength={config.ui.input_minLength}
         maxLength={config.ui.input_maxLength}
