@@ -8,7 +8,7 @@ export const SubmitButton = (props: SubmitButtonProps) => {
   //  const muiProps = props as MuiProps
   return (
     <button type="submit" id={config.ui.id_name} name={config.ui.id_name} {...reactProps}>
-      {config.ui.submit_text}
+      {props.children ?? config.ui.submit_text}
     </button>
   )
 }
