@@ -6,6 +6,6 @@ export const Label = (props: LabelProps) => {
   const reactProps = props as ReactProps
   //  const muiProps = props as MuiProps
   return (
-      <label style={config.styles.react.formFieldLabel} {...reactProps} />
+      <label style={config.styles.current().formFieldLabel} {...reactProps} />
   )
 }

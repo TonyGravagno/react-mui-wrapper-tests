@@ -12,7 +12,7 @@ export const SubmitButton = (props: SubmitButtonProps) => {
       id={config.ui.id_name}
       name={config.ui.id_name}
       {...reactProps}
-      style={config.styles.react.submitButton}
+      style={config.styles.current().submitButton}
     >
       {props.children ?? config.ui.submit_text}
     </button>
