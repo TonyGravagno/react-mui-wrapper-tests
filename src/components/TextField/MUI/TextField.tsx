@@ -12,6 +12,7 @@ export const TextField = (props: TextFieldProps) => {
       name={config.ui.id_name}
       size={config.ui.text_size}
       variant={config.ui.text_variant}
+      style={config.styles.current().formFieldInput}
       {...muiProps}
     />
   )

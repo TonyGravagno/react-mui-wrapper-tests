@@ -15,7 +15,9 @@ export const TextArea = (props: TextAreaProps) => {
       name={config.ui.id_name}
       size={config.ui.text_size}
       variant={config.ui.text_variant}
+      rows={config.ui.textarea_rows}
       maxRows={config.ui.textarea_maxRows}
+      style={config.styles.current().formFieldInput}
       {...muiProps}
     />
   )

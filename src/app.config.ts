@@ -113,11 +113,11 @@ export const config: AppConfigJson = {
         verticalAlign: 'text-bottom',
         textAlign: 'left',
         color: 'green',
-        width: '40%',
+        width: '100%',
       },
       formFieldInput: {
         textAlign: 'left',
-        width: '60%',
+        width: '100%',
       },
     },
   },

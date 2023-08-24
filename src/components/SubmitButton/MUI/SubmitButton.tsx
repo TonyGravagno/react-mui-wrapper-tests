@@ -14,6 +14,7 @@ export const SubmitButton = (props: SubmitButtonProps) => {
       size={config.ui.button_size}
       variant={config.ui.button_variant}
       children={config.ui.submit_text}
+      style={config.styles.current().submitButton}
       {...muiProps}
     />
   )
