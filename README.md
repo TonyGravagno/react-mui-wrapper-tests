@@ -1,9 +1,21 @@
-# react-mui-wrapper-tests t06
+# react-mui-wrapper-tests t07
 Experiments in React / TypeScript with wrapping MUI components
 
 See [main branch ReadMe](https://github.com/TonyGravagno/react-mui-wrapper-tests/tree/main) for general info
 
-### Branch t06 2023/08/18 : Attempt better defaults mechanism
+### Branch t07 2023/08/24 : Adding controls
+
+T06 was successful. I'm moving forward from there with T07.
+
+The dynamic component selection between React and MUI might need changes, but it works well for now.
+
+I also enhanced common styling, driven from the app.config.ts file. That's working well but will need ongoing tweaks.
+
+In this branch I'm planning to add checkboxes and radio buttons. I also want to use MUI grids for formatting when MUI is in use. But when React UI us being used, I think the Grid tags need to translate to Table or CSS Grid, or something similar.
+
+#### From T06
+
+<hr/>
 
 After a successful t05 I tried to add control defaults into the control file .json. It was a bad initiative and resulted in t05a\_bad. I'm taking another crack at it here in t06.
 
@@ -16,4 +28,3 @@ This branch attempts to change the version of components that's used in forms by
 
 Unfortunately, linting is done during editing, before the build, so unless the path is correct during the edit, there might not be a build.
 
-At this point, this is a highly volatile branch, doesn't even compile, but I'm hoping to use this structure.
