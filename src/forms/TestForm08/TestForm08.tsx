@@ -39,18 +39,18 @@ export const TestForm08 = () => {
         <TextArea label="Text Area" value={textArea} onChange={e => setTextArea(e.target.value)} />
         <div style={config.styles.current().formFieldRow}>
           <Checkbox
-            label="Activexxxxx"
+            label="Active"
             value={activeUser}
             labelPlacement="end"
             singleComponent={true}
             onChange={e => setActiveUser(e.target.value === 'on')}
           />
           <Checkbox
-            label="Happyxxxxxx"
+            label="Happy Client"
             value={happyUser}
             labelPlacement="end"
             singleComponent={true}
-            onChange={e => setActiveUser(e.target.value === 'on')}
+            onChange={e => setHappyUser(e.target.value === 'on')}
           />
         </div>
         <SubmitButton />
