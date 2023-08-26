@@ -12,7 +12,7 @@
       "@components/*": ["./components/*"],
       "@forms/*": ["./forms/*"],
       "@utils/*": ["./utils/*"],
-      "@types/*": ["./types/*"],
+      "@apptypes/*": ["./types/*"],
     },
     /* Bundler mode */
     "moduleResolution": "bundler",
