@@ -21,7 +21,7 @@ switch (config.ui.toolkit) {
 }
 export const Label = C0
 
-type LabelForComponentOptions = {
+export type LabelForComponentOptions = {
   props?: LabelProps
 }
 export const getLabelForComponent = (
