@@ -1,4 +1,3 @@
-//import { FormControlLabelProps, CheckboxProps as MuiProps } from '@mui/material'
 import { config } from '@root/app.config'
 import { ReactProps, CheckboxProps } from '@apptypes/toggles'
 import { getStyles, toggleSetting } from '@utils/toggles/common'

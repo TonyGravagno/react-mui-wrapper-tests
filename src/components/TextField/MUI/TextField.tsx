@@ -1,7 +1,6 @@
-import { TextField as MuiTextField, TextFieldProps as MuiProps } from '@mui/material'
 import { config } from '@root/app.config'
-type ReactProps = React.JSX.IntrinsicElements['input']
-type TextFieldProps = ReactProps & MuiProps
+import { TextFieldProps, MuiProps } from '..'
+import { TextField as MuiTextField } from '@mui/material'
 
 export const TextField = (props: TextFieldProps) => {
   const muiProps = props as MuiProps

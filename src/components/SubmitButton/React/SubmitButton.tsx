@@ -1,11 +1,8 @@
-import { ButtonProps as MuiProps } from '@mui/material'
 import { config } from '@root/app.config'
-type ReactProps = React.JSX.IntrinsicElements['button']
-type SubmitButtonProps = ReactProps & MuiProps
+import { ReactProps, SubmitButtonProps } from '..'
 
 export const SubmitButton = (props: SubmitButtonProps) => {
   const reactProps = props as ReactProps
-  //  const muiProps = props as MuiProps
   return (
     <button
       type="submit"

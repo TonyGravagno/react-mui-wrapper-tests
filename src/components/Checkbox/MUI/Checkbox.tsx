@@ -1,7 +1,6 @@
-import { FormControlLabel, Checkbox as MuiCheckbox, CheckboxProps as MuiProps } from '@mui/material'
 import { config } from '@root/app.config'
+import { FormControlLabel, Checkbox as MuiCheckbox, CheckboxProps as MuiProps } from '@mui/material'
 import { CheckboxProps } from '@apptypes/toggles'
-
 import { getStyles, toggleSetting } from '@utils/toggles/common'
 
 export const Checkbox = (props: CheckboxProps) => {

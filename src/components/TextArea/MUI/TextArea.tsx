@@ -1,12 +1,8 @@
-import { TextField as MuiTextField, TextFieldProps as MuiProps } from '@mui/material'
 import { config } from '@root/app.config'
-type ReactProps = React.JSX.IntrinsicElements['textarea']
-type TextAreaProps = ReactProps & MuiProps
+import { TextAreaProps, MuiProps } from '..'
+import { TextField as MuiTextField } from '@mui/material'
 
 export const TextArea = (props: TextAreaProps) => {
-  //TextAreaProps
-  const muiProps = props as MuiProps
-
   return (
     <MuiTextField
       multiline
@@ -18,7 +14,7 @@ export const TextArea = (props: TextAreaProps) => {
       rows={config.ui.textarea_rows}
       maxRows={config.ui.textarea_maxRows}
       style={config.styles.current().formFieldInput}
-      {...muiProps}
+      {...(props as MuiProps)}
     />
   )
 }

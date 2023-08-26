@@ -1,6 +1,11 @@
 import { config } from '@root/app.config'
 import { TextArea as C1 } from './MUI/TextArea'
 import { TextArea as C2 } from './React/TextArea'
+import { MuiProps } from '..'
+
+export type { TextFieldProps as MuiProps } from '@mui/material'
+export type ReactProps = React.JSX.IntrinsicElements['textarea']
+export type TextAreaProps = ReactProps & MuiProps
 
 let C0
 switch (config.ui.toolkit) {

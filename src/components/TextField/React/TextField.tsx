@@ -1,8 +1,6 @@
-import { TextFieldProps as MuiProps } from '@mui/material'
-import { getLabelForComponent } from '@components/Label'
 import { config } from '@root/app.config'
-type ReactProps = React.JSX.IntrinsicElements['input']
-type TextFieldProps = ReactProps & MuiProps
+import { TextFieldProps, MuiProps, ReactProps } from '..'
+import { getLabelForComponent } from '@components/Label'
 
 export const TextField = (props: TextFieldProps) => {
   const reactProps = props as ReactProps
@@ -11,7 +9,8 @@ export const TextField = (props: TextFieldProps) => {
   return (
     <div style={config.styles.current().formFieldRow}>
       {labelComponent}
-      <input style={config.styles.current().formFieldInput}
+      <input
+        style={config.styles.current().formFieldInput}
         type="text"
         minLength={config.ui.input_minLength}
         maxLength={config.ui.input_maxLength}
