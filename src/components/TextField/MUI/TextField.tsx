@@ -5,6 +5,8 @@ type TextFieldProps = ReactProps & MuiProps
 
 export const TextField = (props: TextFieldProps) => {
   const muiProps = props as MuiProps
+  console.dir(muiProps)
+  console.dir(config.styles.current().formFieldInput)
   return (
     <MuiTextField
       type="text"
@@ -12,8 +14,8 @@ export const TextField = (props: TextFieldProps) => {
       name={config.ui.id_name}
       size={config.ui.text_size}
       variant={config.ui.text_variant}
-      style={config.styles.current().formFieldInput}
       {...muiProps}
+      style={config.styles.current().formFieldInput}
     />
   )
 }
