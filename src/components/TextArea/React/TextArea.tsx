@@ -1,10 +1,9 @@
 import { config } from '@root/app.config'
-import { TextAreaProps, ReactProps, MuiProps } from '..'
+import { TextAreaProps, ReactProps } from '@apptypes/textarea'
 import { getLabelForComponent } from '@components/Label'
 
 export const TextArea = (props: TextAreaProps) => {
-  const muiProps = props as MuiProps
-  const labelComponent = getLabelForComponent(muiProps.label)
+  const labelComponent = getLabelForComponent(props.label)
   return (
     <div style={config.styles.current().formFieldRow}>
       {labelComponent}
