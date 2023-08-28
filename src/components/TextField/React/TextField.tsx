@@ -1,11 +1,9 @@
 import { config } from '@root/app.config'
-import { TextFieldProps, MuiProps, ReactProps } from '..'
+import { TextFieldProps, ReactProps } from '@apptypes/input'
 import { getLabelForComponent } from '@components/Label'
 
 export const TextField = (props: TextFieldProps) => {
-  const reactProps = props as ReactProps
-  const muiProps = props as MuiProps
-  const labelComponent = getLabelForComponent(muiProps.label)
+  const labelComponent = getLabelForComponent(props.label)
   return (
     <div style={config.styles.current().formFieldRow}>
       {labelComponent}
@@ -16,7 +14,7 @@ export const TextField = (props: TextFieldProps) => {
         maxLength={config.ui.input_maxLength}
         id={config.ui.id_name}
         name={config.ui.id_name}
-        {...reactProps}
+        {...props as ReactProps}
       />
     </div>
   )

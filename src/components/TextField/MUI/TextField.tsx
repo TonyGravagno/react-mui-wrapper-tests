@@ -1,5 +1,5 @@
 import { config } from '@root/app.config'
-import { TextFieldProps, MuiProps } from '..'
+import { TextFieldProps, MuiProps } from '@apptypes/input'
 import { TextField as MuiTextField } from '@mui/material'
 
 export const TextField = (props: TextFieldProps) => {
