@@ -1,6 +1,6 @@
-import { MergedValue } from '../../types/toggles'
+import { MergedValue } from '../../types/toggle'
 import { config } from '@root/app.config'
-import { CheckboxProps } from '@apptypes/toggles'
+import { CheckboxProps } from '@apptypes/toggle'
 import { LabelForComponentOptions, getLabelForComponent } from '@components/Label'
 
 import CSS from 'csstype'

@@ -1,5 +1,5 @@
 import { config } from '@root/app.config'
-import { ReactProps, CheckboxProps } from '@apptypes/toggles'
+import { ReactProps, CheckboxProps } from '@apptypes/toggle'
 import { getStyles, toggleSetting } from '@utils/toggles/common'
 
 export const Checkbox = (props: CheckboxProps) => {
