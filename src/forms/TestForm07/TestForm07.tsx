@@ -50,7 +50,7 @@ export const TestForm07 = () => {
             value={happyUser}
             labelPlacement="end"
             singleComponent={true}
-            onChange={e => setActiveUser(e.target.value === 'on')}
+            onChange={e => setHappyUser(e.target.value === 'on')}
           />
         </div>
         <SubmitButton />

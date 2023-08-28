@@ -25,7 +25,7 @@ export const TestForm08 = () => {
       <Label>Hello Label</Label>
       <form onSubmit={handleSubmit} style={config.styles.current().formContainer}>
         <TextField
-          label="UserName" //{<Label>UserName</Label>}
+          label={<Label>User Name!</Label>}
           type="text"
           value={username}
           onChange={e => setUsername(e.target.value)}
