@@ -1,9 +1,9 @@
 import { FormControlLabelProps, TextFieldProps as MuiProps } from '@mui/material'
+import React from 'react'
 
 export type {MuiProps}
 export type ReactProps = React.JSX.IntrinsicElements['input']
 type LocalProps = {
-  label?: React.ReactNode
   labelPlacement?: FormControlLabelProps['labelPlacement']
 }
-export type TextFieldProps = ReactProps & MuiProps & LocalProps
+export type TextFieldProps =Omit< ReactProps,'label'> & MuiProps & LocalProps

@@ -3,9 +3,9 @@ import { TextFieldProps, MuiProps } from '@apptypes/input'
 import { TextField as MuiTextField } from '@mui/material'
 
 export const TextField = (props: TextFieldProps) => {
-  const muiProps = props as MuiProps
-  console.dir(muiProps)
-  console.dir(config.styles.current().formFieldInput)
+  console.dir({ textfield: props as MuiProps })
+  console.dir({ formFieldInput: config.styles.current().formFieldInput })
+  console.dir({ label: props.label })
   return (
     <MuiTextField
       type="text"
@@ -13,7 +13,7 @@ export const TextField = (props: TextFieldProps) => {
       name={config.ui.id_name}
       size={config.ui.text_size}
       variant={config.ui.text_variant}
-      {...muiProps}
+      {...(props as MuiProps)}
       style={config.styles.current().formFieldInput}
     />
   )
