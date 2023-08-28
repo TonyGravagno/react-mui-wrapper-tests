@@ -1,11 +1,7 @@
-export type { InputLabelProps as MuiProps } from '@mui/material'
-import { MuiProps } from '..' // get it from 'myself'
-export type ReactProps = React.JSX.IntrinsicElements['label']
-export type LabelProps = ReactProps & MuiProps
-
 import { config } from '@root/app.config'
 import { Label as C1 } from './MUI/Label'
 import { Label as C2 } from './React/Label'
+import { LabelProps } from '@apptypes/label'
 
 let C0: (props: LabelProps) => JSX.Element
 switch (config.ui.toolkit) {

@@ -1,5 +1,5 @@
 import { config } from '@root/app.config'
-import { LabelProps, MuiProps } from '..'
+import { LabelProps, MuiProps } from '@apptypes/label'
 import { InputLabel as MuiLabel } from '@mui/material'
 
 export const Label = (props: LabelProps) => {
