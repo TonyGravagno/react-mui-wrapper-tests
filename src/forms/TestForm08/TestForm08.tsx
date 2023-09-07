@@ -16,7 +16,13 @@ export const TestForm08 = () => {
   const [textArea, setTextArea] = useState('')
   const [activeUser, setActiveUser] = useState(false)
   const [happyUser, setHappyUser] = useState(false)
-
+  const userLabelStyle = {
+    color: 'blue',
+    backgroundColor: config.ui.commonBackgroundColor,
+    zIndex: 9,
+    padding: '0px 7px 0px 7px',
+  }
+const userLabel = <Label style={userLabelStyle}>User Name</Label>
   return (
     <>
       <h4>
@@ -24,10 +30,12 @@ export const TestForm08 = () => {
       </h4>
       <Label>Hello Label</Label>
       <form onSubmit={handleSubmit} style={config.styles.current().formContainer}>
+      <div style={config.styles.current().formFieldRow}>
         <TextField
-          label={<Label>User Name!</Label>}
+          label={userLabel}
           type="text"
           value={username}
+          width={'200px'}
           onChange={e => setUsername(e.target.value)}
         />
         <TextField
@@ -36,6 +44,7 @@ export const TestForm08 = () => {
           value={password}
           onChange={e => setPassword(e.target.value)}
         />
+        </div>
         <TextArea label="Text Area" value={textArea} onChange={e => setTextArea(e.target.value)} />
         <div style={config.styles.current().formFieldRow}>
           <Checkbox
