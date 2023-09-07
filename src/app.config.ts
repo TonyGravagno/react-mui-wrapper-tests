@@ -25,6 +25,7 @@ type ReactStyles = Record<StyleKeys, CSS.Properties>
 type MuiStyles = Record<StyleKeys, CSS.Properties>
 
 export type AppConfigJson = {
+  utils: (options: any) => any
   ui: {
     toolkit: 'mui' | 'react'
     button_size: ButtonProps['size']
@@ -42,6 +43,7 @@ export type AppConfigJson = {
     checkboxColor: CheckboxProps['color']
     checkboxDisableRipple: boolean
     checkboxLabelPlacement: FormControlLabelProps['labelPlacement']
+    commonBackgroundColor: ReactStyles['formContainer']['backgroundColor']
   }
   styles: {
     current: () => ReactStyles
@@ -52,8 +54,14 @@ export type AppConfigJson = {
 }
 
 export const config: AppConfigJson = {
+  utils: options => {
+    // not implemented
+    if (options['init']) {
+      config.styles.current().toggleFieldControl.backgroundColor = config.ui.commonBackgroundColor
+    }
+  },
   ui: {
-    toolkit: 'react',
+    toolkit: 'mui',
     id_name: 'dunno',
     button_variant: 'outlined',
     text_variant: 'outlined',
@@ -69,6 +77,7 @@ export const config: AppConfigJson = {
     checkboxColor: 'default',
     checkboxDisableRipple: false,
     checkboxLabelPlacement: 'end',
+    commonBackgroundColor: 'aliceblue',
   },
   styles: {
     current: (): ReactStyles => {
@@ -97,7 +106,7 @@ export const config: AppConfigJson = {
         marginRight: '5px',
         verticalAlign: 'text-top',
         textAlign: 'left',
-        color: 'red',
+  //      color: 'red',
         width: '40%',
       },
       formFieldInput: {
@@ -107,28 +116,28 @@ export const config: AppConfigJson = {
       toggleFieldLabelStart: {
         verticalAlign: 'baseline',
         textAlign: 'left',
-        color: 'blue',
+        //       color: 'blue',
         marginRight: '3px',
         width: '40%',
       },
       toggleFieldLabelEnd: {
         verticalAlign: 'text-top',
         textAlign: 'left',
-        color: 'blue',
+        //       color: 'blue',
         marginRight: '10px',
-        backgroundColor: 'yellow'
+        //       backgroundColor: 'yellow',
       },
       toggleFieldLabelTop: {
         verticalAlign: 'baseline',
         textAlign: 'left',
-        color: 'green',
+        //       color: 'green',
         marginRight: '3px',
         width: '40%',
       },
       toggleFieldLabelBottom: {
         verticalAlign: 'text-top',
         textAlign: 'left',
-        color: 'blue',
+        //       color: 'blue',
         width: '40%',
       },
       toggleFieldInputStart: {
@@ -146,21 +155,21 @@ export const config: AppConfigJson = {
       toggleFieldControl: {
         marginLeft: '2px',
         textAlign: 'left',
-        backgroundColor: '#00ffaa',
+        //       backgroundColor: '#00ffaa',
       },
       toggleFieldInputTop: {
         marginLeft: '3px',
         marginRight: '2px',
         textAlign: 'left',
         width: '60%',
-        color: '#ffaa33',
+        //      color: '#ffaa33',
       },
       toggleFieldInputBottom: {
         marginLeft: '-7px',
         marginRight: '2px',
         textAlign: 'left',
         width: '60%',
-        color: '#ffaa33',
+        //      color: '#ffaa33',
       },
     },
     mui: {
@@ -185,7 +194,7 @@ export const config: AppConfigJson = {
         marginRight: '5px',
         verticalAlign: 'text-bottom',
         textAlign: 'left',
-        color: 'green',
+        //      color: 'green',
         width: '100%',
       },
       formFieldInput: {
@@ -196,72 +205,73 @@ export const config: AppConfigJson = {
       toggleFieldLabelStart: {
         verticalAlign: 'text-top',
         textAlign: 'right',
-        color: 'blue',
-        backgroundColor: 'yellow',
+        //     color: 'blue',
+        //     backgroundColor: 'yellow',
         marginRight: '40px',
         marginLeft: '-4px',
         borderStyle: 'dotted',
-        width: '100%'
+        width: '100%',
       },
       toggleFieldLabelEnd: {
         verticalAlign: 'text-top',
         textAlign: 'left',
-        color: 'blue',
-        backgroundColor: 'yellow',
+        //      color: 'blue',
+        //      backgroundColor: 'yellow',
         marginRight: '40px',
         marginLeft: '-4px',
         borderStyle: 'dotted',
-        width: '100%'
+        width: '100%',
       },
       toggleFieldLabelTop: {
         verticalAlign: 'baseline',
         textAlign: 'center',
-        color: 'green',
-        marginBottom: '-8px'
+        //      color: 'green',
+        marginBottom: '-8px',
       },
       toggleFieldLabelBottom: {
         verticalAlign: 'baseline',
         textAlign: 'center',
-        color: 'blue',
-        marginTop: '-8px'
+        //     color: 'blue',
+        marginTop: '-8px',
       },
       toggleFieldInputStart: {
         marginLeft: '-5px',
         marginRight: '2px',
         textAlign: 'left',
         width: '60%',
-        backgroundColor: 'red'
+        //      backgroundColor: 'red',
       },
       toggleFieldInputEnd: {
         marginLeft: '0px',
         marginRight: '5px',
         textAlign: 'left',
         width: '60%',
-        backgroundColor: 'orange'
+        //        backgroundColor: 'orange',
       },
       toggleFieldInputTop: {
         // marginLeft: '3px',
         // marginRight: '2px',
         textAlign: 'center',
         // width: '60%',
-        color: '#ffaa33',
+        //       color: '#ffaa33',
       },
       toggleFieldInputBottom: {
         // marginLeft: '-7px',
         // marginRight: '2px',
         textAlign: 'center',
         // width: '60%',
-        color: '#ffaa33',
+        //     color: '#ffaa33',
       },
       toggleFieldControl: {
         marginLeft: '2px',
         textAlign: 'left',
-        backgroundColor: '#00ffaa',
+        //    backgroundColor: '#00ffaa',
       },
     },
   },
   status: 'Testing',
 }
+config.utils('init')
 
 // marginRight: '342px',
 // verticalAlign: 'text-top',
