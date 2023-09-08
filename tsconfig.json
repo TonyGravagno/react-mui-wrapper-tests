@@ -28,5 +28,6 @@
     "noFallthroughCasesInSwitch": true
   },
   "include": ["src"],
+  "exclude": ["_ignore"],
   "references": [{ "path": "./tsconfig.node.json" }],
 }
