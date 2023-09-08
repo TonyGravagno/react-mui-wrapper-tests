@@ -1,6 +1,6 @@
 import { FormControlLabelProps, TextFieldProps as MuiProps } from '@mui/material'
 import React from 'react'
-import { Override } from './commonTypes'
+import { Override } from './CommonTypes'
 export type { MuiProps }
 export type ReactProps = React.JSX.IntrinsicElements['input']
 
