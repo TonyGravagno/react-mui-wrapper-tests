@@ -39,7 +39,7 @@ export const entityMaintForm = () => {
   const blurred_first_name = async (eventObj: any) => {
     // Manually trigger validation for the "first_name" field
     const isValid = await methods.trigger('first_name')
-
+    console.dir(eventObj)
     // Do something based on the validation result
     if (isValid) {
       // The field is valid
