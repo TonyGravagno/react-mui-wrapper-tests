@@ -1,7 +1,7 @@
 import { MergedValue } from '../../types/toggle'
 import { config } from '@root/app.config'
 import { CheckboxProps } from '@apptypes/toggle'
-import { LabelForComponentOptions, getLabelForComponent } from '@components/Label'
+import { LabelForComponentOptions, getLabelForComponent } from '@components/FieldLabel'
 
 import CSS from 'csstype'
 export function toggleSetting(lValue: MergedValue) {
@@ -38,26 +38,26 @@ export function getStyles(props: CheckboxProps) {
   let inputStyle: CSS.Properties = {}
   let groupStyle: CSS.Properties = {}
   if (props.singleComponent) {
-    groupStyle = config.styles.current().toggleFieldControl
+    groupStyle = config.styles.mui.toggleFieldControl
   } else {
-    groupStyle = config.styles.current().formFieldRow
+    groupStyle = config.styles.mui.formFieldRow
   }
   switch (labelPlacement) {
     case 'top':
-      labelStyle = config.styles.current().toggleFieldLabelTop
-      inputStyle = config.styles.current().toggleFieldInputBottom
+      labelStyle = config.styles.mui.toggleFieldLabelTop
+      inputStyle = config.styles.mui.toggleFieldInputBottom
       break
     case 'bottom':
-      labelStyle = config.styles.current().toggleFieldLabelBottom
-      inputStyle = config.styles.current().toggleFieldInputTop
+      labelStyle = config.styles.mui.toggleFieldLabelBottom
+      inputStyle = config.styles.mui.toggleFieldInputTop
       break
     case 'start':
-      labelStyle = config.styles.current().toggleFieldLabelStart
-      inputStyle = config.styles.current().toggleFieldInputEnd
+      labelStyle = config.styles.mui.toggleFieldLabelStart
+      inputStyle = config.styles.mui.toggleFieldInputEnd
       break
     case 'end':
-      labelStyle = config.styles.current().toggleFieldLabelEnd
-      inputStyle = config.styles.current().toggleFieldInputStart
+      labelStyle = config.styles.mui.toggleFieldLabelEnd
+      inputStyle = config.styles.mui.toggleFieldInputStart
       break
     default:
       throw new Error(`Invalid label placement code "${labelPlacement}"`)
