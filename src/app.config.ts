@@ -21,7 +21,6 @@ type StyleKeys =
   | 'toggleFieldControl'
 
 // Use the Record utility type to create a type with those keys, all having the same value type
-type ReactStyles = Record<StyleKeys, CSS.Properties>
 type MuiStyles = Record<StyleKeys, CSS.Properties>
 
 export type AppConfigJson = {
@@ -43,11 +42,9 @@ export type AppConfigJson = {
     checkboxColor: CheckboxProps['color']
     checkboxDisableRipple: boolean
     checkboxLabelPlacement: FormControlLabelProps['labelPlacement']
-    commonBackgroundColor: ReactStyles['formContainer']['backgroundColor']
+    commonBackgroundColor: MuiStyles['formContainer']['backgroundColor']
   }
   styles: {
-    current: () => ReactStyles
-    react: ReactStyles
     mui: MuiStyles
   }
   status: string
@@ -55,10 +52,11 @@ export type AppConfigJson = {
 
 export const config: AppConfigJson = {
   utils: options => {
+    return options // FIX
     // not implemented
-    if (options['init']) {
-      config.styles.current().toggleFieldControl.backgroundColor = config.ui.commonBackgroundColor
-    }
+    // if (options['init']) {
+    //   config.styles.current().toggleFieldControl.backgroundColor = config.ui.commonBackgroundColor
+    // }
   },
   ui: {
     toolkit: 'mui',
@@ -80,98 +78,6 @@ export const config: AppConfigJson = {
     commonBackgroundColor: 'aliceblue',
   },
   styles: {
-    current: (): ReactStyles => {
-      if (config.ui.toolkit === 'react') return config.styles.react
-      else return config.styles.mui
-    },
-    react: {
-      labelledControl: {
-        display: 'flex',
-        alignItems: 'flex-start',
-      },
-      submitButton: {
-        margin: '5px',
-      },
-      formContainer: {
-        borderWidth: '2px',
-        borderStyle: 'inset',
-        margin: '5px',
-        padding: '5px',
-      },
-      formFieldRow: {
-        display: 'flex',
-        alignItems: 'flex-start',
-      },
-      formFieldLabel: {
-        marginRight: '5px',
-        verticalAlign: 'text-top',
-        textAlign: 'left',
-  //      color: 'red',
-        width: '40%',
-      },
-      formFieldInput: {
-        textAlign: 'left',
-        width: '60%',
-      },
-      toggleFieldLabelStart: {
-        verticalAlign: 'baseline',
-        textAlign: 'left',
-        //       color: 'blue',
-        marginRight: '3px',
-        width: '40%',
-      },
-      toggleFieldLabelEnd: {
-        verticalAlign: 'text-top',
-        textAlign: 'left',
-        //       color: 'blue',
-        marginRight: '10px',
-        //       backgroundColor: 'yellow',
-      },
-      toggleFieldLabelTop: {
-        verticalAlign: 'baseline',
-        textAlign: 'left',
-        //       color: 'green',
-        marginRight: '3px',
-        width: '40%',
-      },
-      toggleFieldLabelBottom: {
-        verticalAlign: 'text-top',
-        textAlign: 'left',
-        //       color: 'blue',
-        width: '40%',
-      },
-      toggleFieldInputStart: {
-        marginLeft: '3px',
-        marginRight: '2px',
-        textAlign: 'left',
-        width: '60%',
-      },
-      toggleFieldInputEnd: {
-        marginLeft: '-7px',
-        marginRight: '2px',
-        textAlign: 'left',
-        width: '60%',
-      },
-      toggleFieldControl: {
-        marginLeft: '2px',
-        textAlign: 'left',
-        //       backgroundColor: '#00ffaa',
-      },
-      toggleFieldInputTop: {
-        marginLeft: '3px',
-        marginRight: '2px',
-        textAlign: 'left',
-        width: '60%',
-        //      color: '#ffaa33',
-      },
-      toggleFieldInputBottom: {
-        marginLeft: '-7px',
-        marginRight: '2px',
-        textAlign: 'left',
-        width: '60%',
-        //      color: '#ffaa33',
-      },
-    },
     mui: {
       labelledControl: {
         display: 'flex',
