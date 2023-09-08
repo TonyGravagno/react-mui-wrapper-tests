@@ -1,7 +1,7 @@
 import { useForm, FormProvider } from 'react-hook-form'
 //import { z, ZodSchema } from 'zod'
-import { SchemaProvider } from '../SchemaContext'
-import { FieldText } from '../FieldText'
+import { SchemaProvider } from '@components/SchemaContext'
+import { FieldText } from '@components/FieldText'
 
 // import * as FormTypes from '../../types/FormTypes'
 import * as Schema from './PersonSchema'
