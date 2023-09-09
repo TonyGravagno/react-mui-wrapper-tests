@@ -39,7 +39,7 @@ export const FieldText: React.FC<FieldTextProps> = ({
     name: name,
     type: controlType,
     size: config.ui.text_size,
-    style: config.styles.current().formFieldInput,
+    style: config.styles.mui.formFieldInput,
     label: effectiveLabel,
   }
 
@@ -114,7 +114,7 @@ export const SubmitButton = (props: SubmitButtonProps) => {
       size={config.ui.button_size}
       variant={config.ui.button_variant}
       children={config.ui.submit_text}
-      style={config.styles.current().submitButton}
+      style={config.styles.mui.submitButton}
       {...muiProps}
     />
   )

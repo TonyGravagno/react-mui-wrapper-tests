@@ -39,7 +39,7 @@ export const FieldText: React.FC<FieldTextProps> = ({
     name: name,
     type: controlType,
     size: config.ui.text_size,
-    style: config.styles.current().formFieldInput,
+    style: config.styles.mui.formFieldInput,
     label: effectiveLabel,
   }
 

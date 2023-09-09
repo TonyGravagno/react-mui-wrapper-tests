@@ -55,7 +55,7 @@ export const config: AppConfigJson = {
     return options // FIX
     // not implemented
     // if (options['init']) {
-    //   config.styles.current().toggleFieldControl.backgroundColor = config.ui.commonBackgroundColor
+    //   config.styles.mui.toggleFieldControl.backgroundColor = config.ui.commonBackgroundColor
     // }
   },
   ui: {

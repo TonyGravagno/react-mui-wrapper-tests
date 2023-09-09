@@ -39,7 +39,7 @@ export const FieldText: React.FC<FieldTextProps> = ({
     name: name,
     type: controlType,
     size: config.ui.text_size,
-    style: config.styles.current().formFieldInput,
+    style: config.styles.mui.formFieldInput,
     label: effectiveLabel,
   }
 
@@ -115,7 +115,7 @@ export const TextArea = (props: TextAreaProps) => {
       variant={config.ui.text_variant}
       rows={config.ui.textarea_rows}
       maxRows={config.ui.textarea_maxRows}
-      style={config.styles.current().formFieldInput}
+      style={config.styles.mui.formFieldInput}
       {...(props as MuiProps)}
     />
   )
