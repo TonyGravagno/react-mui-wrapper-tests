@@ -15,12 +15,12 @@ import {
   TextField as MuiTextField,
   TextFieldProps as MuiTextFieldProps,
 } from '@mui/material'
+import { AnyZodObject } from 'zod'
 
 const controlType = 'text'
 
 export const FieldText: React.FC<FieldTextProps> = ({
   name,
-  label,
   variant = 'outlined',
   ...otherProps
 }) => {
@@ -29,11 +29,14 @@ export const FieldText: React.FC<FieldTextProps> = ({
     formState: { errors },
   } = useFormContext()
 
-  const schema = useSchema()
-  const effectiveLabel = label || schema._def.description || ''
+  const schemaObject = useSchema() as AnyZodObject
+
+  const fieldSchema = schemaObject._def.shape()[name]
+  const label = fieldSchema.description
+  const effectiveLabel = otherProps.label || label || ''
+
   const effectiveId = otherProps.id || name
   const onChangeEnabled = otherProps.onBlur !== undefined
-
   const defaultProps = {
     id: effectiveId,
     name: name,
@@ -69,7 +72,7 @@ export const FieldText: React.FC<FieldTextProps> = ({
       shouldUnregister={onChangeEnabled}
       rules={{
         validate: value => {
-          const result = schema.safeParse(value)
+          const result = fieldSchema.safeParse(value)
           if (result?.success) {
             return true
           } else {

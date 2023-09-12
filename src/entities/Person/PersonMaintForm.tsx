@@ -50,7 +50,7 @@ export const entityMaintForm = () => {
 
   //methods.trigger('fieldname')
   return (
-    <SchemaProvider schema={schemaObject}>
+    <SchemaProvider<Schema.EntityZodType> schema={schemaObject}>
       <FormProvider {...methods}>
         <form onSubmit={methods.handleSubmit(onSubmit)}>
           <FieldText name="id" />

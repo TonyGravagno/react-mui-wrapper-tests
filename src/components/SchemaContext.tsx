@@ -1,21 +1,28 @@
-import React, { createContext, useContext, ReactNode } from 'react';
-import { ZodSchema } from 'zod';
+import { createContext, useContext, ReactNode } from 'react'
+import { AnyZodObject } from 'zod'
 
-interface SchemaProviderProps {
-  schema: ZodSchema<any>;
-  children: ReactNode;  // Fix for TypeScript error
+interface SchemaProviderProps<T extends AnyZodObject> {
+  schema: T
+  children: ReactNode
 }
 
-const SchemaContext = createContext<ZodSchema<any> | null>(null);
+interface SchemaContextType<T extends AnyZodObject> {
+  schema: T
+}
 
-export const useSchema = () => {
-  const context = useContext(SchemaContext);
+const SchemaContext = createContext<SchemaContextType<any> | null>(null)
+
+export function useSchema<T extends AnyZodObject>(): T {
+  const context = useContext(SchemaContext)
   if (!context) {
-    throw new Error('useSchema must be used within a SchemaProvider');
+    throw new Error('useSchema must be used within a SchemaProvider')
   }
-  return context;
-};
+  return context.schema as T
+}
 
-export const SchemaProvider: React.FC<SchemaProviderProps> = ({ children, schema }) => {
-  return <SchemaContext.Provider value={schema}>{children}</SchemaContext.Provider>;
-};
+export function SchemaProvider<T extends AnyZodObject>({
+  children,
+  schema,
+}: SchemaProviderProps<T>) {
+  return <SchemaContext.Provider value={{ schema }}>{children}</SchemaContext.Provider>
+}

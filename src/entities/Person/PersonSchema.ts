@@ -1,4 +1,3 @@
-
 // generated : 2023-08-07T23:33:00.805Z v3.8.701
 
 import z from 'zod'
@@ -20,7 +19,7 @@ enum MessageKeysEnum {
 }
 
 enum ValidationKeysEnum {
-  NameRegex
+  NameRegex,
 }
 
 export type FieldNameType = typeof FieldNameEnum
@@ -42,8 +41,6 @@ export const schemaShape = {
 if (schemaShape as SchemaShapeType) null // canary
 
 export const schemaObject = getSchema(schemaShape)
-
-export type EntityType = z.infer<typeof schemaObject>
+export type EntityZodType = typeof schemaObject
+export type EntityType = z.infer<EntityZodType>
 export type Schema = EntityDataType & EntityType
-
-  

@@ -13,8 +13,8 @@ export type EntityFormProps = EntityDataProps & {
 export type Module = () => { [key: string]: Function }
 
 export type CommonFormProps = {
-  entityName: string,
-  pageHeader: string,
+  entityName: string
+  pageHeader: string
   db: Module
   entityData: EntityDataType
   EntityMaintForm: EntityMaintFormType
