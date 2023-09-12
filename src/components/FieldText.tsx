@@ -32,7 +32,9 @@ export const FieldText: React.FC<FieldTextProps> = ({
   const schemaObject = useSchema() as AnyZodObject
 
   const fieldSchema = schemaObject._def.shape()[name]
-  const label = fieldSchema.description
+  const meta = JSON.parse( fieldSchema.description)
+  const label : string = meta['label'] ?? ''
+  otherProps.multiline = (otherProps.multiline===true) || (meta['multiline'] ?? false)
   const effectiveLabel = otherProps.label || label || ''
 
   const effectiveId = otherProps.id || name
