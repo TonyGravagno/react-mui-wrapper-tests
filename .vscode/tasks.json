@@ -2,23 +2,26 @@
 	"version": "2.0.0",
 	"tasks": [
 		{
+			"label": "Watch and Build",
 			"type": "typescript",
+			"group": {
+			  "kind": "build",
+			  "isDefault": true
+			},
 			"tsconfig": "tsconfig.json",
 			"option": "watch",
 			"problemMatcher": [
 				"$tsc-watch"
 			],
-			"group": "build",
-			"label": "Watch and Build"
 		},
 		{
 			"label": "Run Vite Dev",
 			"type": "shell",
-			"command": "npx vite dev --open",
 			"group": {
-			  "kind": "build",
-			  "isDefault": true
+			  "kind": "none",
+			  "isDefault": false
 			},
+			"command": "npx vite dev --open",
 			"presentation": {
 			  "echo": true,
 			  "reveal": "always",
