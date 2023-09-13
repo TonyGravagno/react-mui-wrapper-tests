@@ -5,6 +5,10 @@ import { FieldText } from '@components/FieldText'
 
 // import * as FormTypes from '../../types/FormTypes'
 import * as Schema from './PersonSchema'
+import { FieldTextArea } from '../../components/FieldTextArea'
+import { FieldLabel } from '../../components/FieldLabel'
+import { Grid, Paper } from '@mui/material'
+import { SubmitButton } from '../../components/SubmitButton'
 // import * as Text from './Person/PersonText'
 // import { CommonText } from '../../language/CommonText'
 // import { InputTypes } from '../../elements/Input'
@@ -53,10 +57,29 @@ export const entityMaintForm = () => {
     <SchemaProvider<Schema.EntityZodType> schema={schemaObject}>
       <FormProvider {...methods}>
         <form onSubmit={methods.handleSubmit(onSubmit)}>
-          <FieldText name="id" />
-          <FieldText name="first_name" onBlur={blurred_first_name} />
-          <FieldText name="birth_date" />
-          <button type="submit">Submit</button>
+          <Grid container spacing={2}>
+            <Grid container item xs={12} spacing={3}>
+              <Grid item xs={4}>
+                  <FieldLabel>Test Label</FieldLabel>
+              </Grid>
+            </Grid>
+            <Grid container item xs={12} spacing={3}>
+              <Grid item xs={4}>
+                <Paper>
+                  <FieldText name="id" />
+                </Paper>
+              </Grid>
+              <Grid item xs={4}>
+                <Paper>
+                  <FieldTextArea name="first_name" onBlur={blurred_first_name} />
+                  <FieldText name="birth_date" />
+                </Paper>
+              </Grid>
+              <Grid item xs={4}>
+                  <SubmitButton>Submit</SubmitButton>
+              </Grid>
+            </Grid>
+          </Grid>
         </form>
       </FormProvider>
     </SchemaProvider>
