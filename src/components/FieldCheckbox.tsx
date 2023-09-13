@@ -2,138 +2,89 @@ import { config } from '@root/app.config'
 import React from 'react'
 import { Controller, useFormContext } from 'react-hook-form'
 import { useSchema } from './SchemaContext'
-import { TextFieldProps as FieldTextProps } from '@apptypes/input'
-import {
-  FilledInput,
-  FilledInputProps,
-  Input,
-  InputProps,
-  OutlinedInput,
-  OutlinedInputProps,
-  FormControl,
-  FormLabel,
-  TextField as MuiTextField,
-  TextFieldProps as MuiTextFieldProps,
-} from '@mui/material'
+import { CheckboxProps as FieldCheckboxProps } from '@apptypes/toggle'
+import { getStyles, getToggleSetting } from '@utils/toggles/common'
+import { FormControlLabel, FormControl, FormLabel, Checkbox as MuiCheckbox } from '@mui/material'
+import { AnyZodObject } from 'zod'
 
-const controlType = 'text'
-
-export const FieldText: React.FC<FieldTextProps> = ({
-  name,
-  label,
-  variant = 'outlined',
-  ...otherProps
-}) => {
+export const FieldCheckbox: React.FC<FieldCheckboxProps> = ({
+  ...fieldProps
+}: FieldCheckboxProps) => {
   const {
     control,
-    formState: { errors },
+    // formState: { errors },
   } = useFormContext()
 
-  const schema = useSchema()
-  const effectiveLabel = label || schema._def.description || ''
-  const effectiveId = otherProps.id || name
-  const onChangeEnabled = otherProps.onBlur !== undefined
+  const schemaObject = useSchema() as AnyZodObject
 
-  const defaultProps = {
-    id: effectiveId,
-    name: name,
-    type: controlType,
-    size: config.ui.text_size,
-    style: config.styles.mui.formFieldInput,
-    label: effectiveLabel,
-  }
+  const fieldSchema = schemaObject._def.shape()[fieldProps.name]
+  const meta = JSON.parse(fieldSchema.description)
+  const label: string = meta['label'] ?? ''
+  const effectiveLabel = fieldProps.label ?? label ?? ''
+  const effectiveId = fieldProps.id ?? fieldProps.name
 
-  const renderInput = (field: any) => {
-    const commonProps = {
-      ...defaultProps,
-      ...field,
-      error: !!errors[name],
-      helperText: errors[name] ? <span>{String(errors[name]?.message)}</span> : null,
-    }
+  const onChangeEnabled = fieldProps.onBlur !== undefined
+  fieldProps.label = effectiveLabel
 
-    switch (variant) {
-      case 'filled':
-        return <FilledInput {...commonProps} {...(otherProps as FilledInputProps)} />
-      case 'outlined':
-        return <OutlinedInput {...commonProps} {...(otherProps as OutlinedInputProps)} />
-      case 'standard':
-      default:
-        return <Input {...commonProps} {...(otherProps as InputProps)} />
-    }
-  }
+  const { inputStyle, labelComponent } = getStyles(fieldProps)
 
   return (
     <Controller
-      name={name}
+      name={fieldProps.name}
       control={control}
       shouldUnregister={onChangeEnabled}
       rules={{
         validate: value => {
-          const result = schema.safeParse(value)
+          const result = fieldSchema.safeParse(value)
           if (result?.success) {
             return true
           } else {
-            return result?.error?.errors[0]?.message || 'Invalid value'
+            return result?.error?.errors[0]?.message ?? 'Invalid value'
           }
         },
       }}
-      render={({ field }) =>
-        typeof effectiveLabel === 'string' ? (
-          <MuiTextField
-            {...defaultProps}
-            variant={variant}
-            label={effectiveLabel}
-            {...field}
-            {...(otherProps as MuiTextFieldProps)}
-            error={!!errors[name]}
-            helperText={errors[name] ? <span>{String(errors[name]?.message)}</span> : null}
-          />
-        ) : (
-          <FormControl variant={variant}>
-            <FormLabel>{effectiveLabel}</FormLabel>
-            {renderInput(field)}
-          </FormControl>
-        )
-      }
-    />
-  )
-}
-
-
-/*
-import { config } from '@root/app.config'
-import { FormControlLabel, Checkbox as MuiCheckbox, CheckboxProps as MuiProps } from '@mui/material'
-import { CheckboxProps } from '@apptypes/toggle'
-import { getStyles, toggleSetting } from '@utils/toggles/common'
-
-export const Checkbox = (props: CheckboxProps) => {
-  const { inputStyle, labelComponent } = getStyles(props)
-
-  return (
-    <FormControlLabel
-      id={config.ui.id_name}
-      name={config.ui.id_name}
-      label={labelComponent}
-      labelPlacement={props.labelPlacement}
-      checked={toggleSetting(props.value)}
-      color={config.ui.checkboxColor}
-      required={false}
-      // style={config.styles.mui.formFieldInput}
-      control={
-        <MuiCheckbox
-          inputProps={{}}
-          disableRipple={config.ui.checkboxDisableRipple}
-          size={config.ui.text_size}
-          indeterminate={false}
-          {...(props as MuiProps)}
-          style={inputStyle}
+      render={({ field }) => (
+        <FormControlLabel
+          id={effectiveId}
+          name={fieldProps.name}
+          label={labelComponent}
+          labelPlacement={fieldProps.labelPlacement ?? config.ui.checkboxLabelPlacement}
+          checked={getToggleSetting(fieldProps.value)}
+          color={config.ui.checkboxColor}
+          // required={false}
+          style={config.styles.mui.formFieldInput}
+          control={
+            typeof effectiveLabel === 'string' ? (
+              <MuiCheckbox
+                id={effectiveId}
+                inputProps={{}}
+                disableRipple={config.ui.checkboxDisableRipple}
+                size={config.ui.text_size}
+                indeterminate={false}
+                style={inputStyle}
+                {...field}
+                {...fieldProps}
+                // label={effectiveLabel}
+              />
+            ) : (
+              <FormControl>
+                <FormLabel>{effectiveLabel}</FormLabel>
+                <MuiCheckbox />
+              </FormControl>
+            )
+          }
+          //error={!!errors[fieldProps.name]}
+          //helperText={errors[fieldProps.name] ? <span>{String(errors[fieldProps.name]?.message)}</span> : null}
         />
-      }
+      )}
     />
     // The props of the ButtonBase component are also available in Checkbox
     // You can take advantage of this to target nested components.
   )
 }
+
+/*
+
 // icon=<CheckBoxOutlineBlankIcon />
 // checkedIcon=<CheckBoxIcon />
 // indeterminateIcon=<IndeterminateCheckBoxIcon />
