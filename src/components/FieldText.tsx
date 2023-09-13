@@ -23,7 +23,7 @@ export const FieldText: React.FC<FieldTextProps> = ({
   name,
   variant = 'outlined',
   ...fieldProps
-}) => {
+}: FieldTextProps) => {
   const {
     control,
     formState: { errors },
@@ -32,12 +32,13 @@ export const FieldText: React.FC<FieldTextProps> = ({
   const schemaObject = useSchema() as AnyZodObject
 
   const fieldSchema = schemaObject._def.shape()[name]
-  const meta = JSON.parse( fieldSchema.description)
-  const label : string = meta['label'] ?? ''
-  fieldProps.multiline = (fieldProps.multiline===true) || (meta['multiline'] ?? false)
-  const effectiveLabel = fieldProps.label || label || ''
+  const meta = JSON.parse(fieldSchema.description)
+  const label: string = meta['label'] ?? ''
+  const effectiveLabel = fieldProps.label ?? label ?? ''
+  const effectiveId = fieldProps.id ?? name
 
-  const effectiveId = fieldProps.id || name
+  fieldProps.multiline = fieldProps.multiline === true || (meta['multiline'] ?? false)
+
   const onChangeEnabled = fieldProps.onBlur !== undefined
   const defaultProps = {
     id: effectiveId,
@@ -78,7 +79,7 @@ export const FieldText: React.FC<FieldTextProps> = ({
           if (result?.success) {
             return true
           } else {
-            return result?.error?.errors[0]?.message || 'Invalid value'
+            return result?.error?.errors[0]?.message ?? 'Invalid value'
           }
         },
       }}

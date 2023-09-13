@@ -1,5 +1,5 @@
 import { config } from '@root/app.config'
-import { CheckboxProps } from '@apptypes/toggle'
+import { CheckboxProps as FieldCheckboxProps } from '@apptypes/toggle'
 import { LabelForComponentOptions, getLabelForComponent } from '@components/FieldLabel'
 
 import CSS from 'csstype'
@@ -32,8 +32,8 @@ export function getToggleSetting(value: any) {
   return isSet
 }
 
-export function getStyles(props: CheckboxProps) {
-  const labelPlacement = props.labelPlacement
+export function getStyles(props: FieldCheckboxProps) {
+  const labelPlacement = props.labelPlacement ?? 'end'
 
   let labelStyle: CSS.Properties = {}
   let inputStyle: CSS.Properties = {}
