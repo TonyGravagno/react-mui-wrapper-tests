@@ -9,6 +9,7 @@ import { FieldTextArea } from '../../components/FieldTextArea'
 import { FieldLabel } from '../../components/FieldLabel'
 import { Grid, Paper } from '@mui/material'
 import { SubmitButton } from '../../components/SubmitButton'
+import { FieldCheckbox } from '../../components/FieldCheckbox'
 // import * as Text from './Person/PersonText'
 // import { CommonText } from '../../language/CommonText'
 // import { InputTypes } from '../../elements/Input'
@@ -73,6 +74,7 @@ export const entityMaintForm = () => {
                 <Paper>
                   <FieldTextArea name="first_name" onBlur={blurred_first_name} />
                   <FieldText name="birth_date" />
+                  <FieldCheckbox name="active" />
                 </Paper>
               </Grid>
               <Grid item xs={4}>

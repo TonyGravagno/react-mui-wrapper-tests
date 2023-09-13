@@ -11,6 +11,7 @@ enum FieldNameEnum {
   id,
   first_name,
   birth_date,
+  active,
 }
 
 enum MessageKeysEnum {
@@ -47,6 +48,9 @@ export const schemaMeta: SchemaMetaType = {
   birth_date: JSON.stringify({
     label: PersonText.Labels.birth_date,
   }),
+  active: JSON.stringify({
+    label: PersonText.Labels.active,
+  }),
 }
 
 // const schema = CommonSchema<keyof typeof FieldNameKeys>(PersonText)
@@ -54,6 +58,7 @@ export const schemaShape: SchemaShapeType = {
   id: z.number().describe(schemaMeta.id),
   first_name: z.string().nullable().describe(schemaMeta.first_name),
   birth_date: z.date().nullable().describe(schemaMeta.birth_date),
+  active: z.boolean().nullable().describe(schemaMeta.active),
 }
 //if (schemaShape as SchemaShapeType) null // canary
 

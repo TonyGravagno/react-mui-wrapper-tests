@@ -26,6 +26,7 @@
       id: 'ID',
       first_name: 'First Name',
       birth_date: 'Birth Date',
+      active: 'Active',
     },
     Validation: {
       NameRegex: /^[a-zA-Z\s,.\-']+$/
