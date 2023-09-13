@@ -2,7 +2,7 @@ import { config } from '@root/app.config'
 import { Button as MuiButton } from '@mui/material'
 import { ButtonProps } from '@apptypes/button'
 
-export const SubmitButton = (props: ButtonProps) => {
+export const SubmitButton = (fieldProps: ButtonProps) => {
   return (
     <MuiButton
       // provide defaults and let props override
@@ -10,7 +10,7 @@ export const SubmitButton = (props: ButtonProps) => {
       variant={config.ui.button_variant}
       children={config.ui.submit_text}
       style={config.styles.mui.submitButton}
-      {...props}
+      {...fieldProps}
       // always override type
       type="submit"
     />

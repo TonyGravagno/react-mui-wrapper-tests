@@ -28,12 +28,12 @@ export const getLabelForComponent = (
   }
 }
 
-export const FieldLabel: React.FC<LabelProps> = (props: LabelProps) => {
+export const FieldLabel: React.FC<LabelProps> = (fieldProps: LabelProps) => {
   return (
     <MuiLabel
       // provide defaults and let props override
       style={config.styles.mui.formFieldLabel}
-      {...props}
+      {...fieldProps}
     />
   )
 }

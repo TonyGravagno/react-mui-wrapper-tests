@@ -22,7 +22,7 @@ const controlType = 'text'
 export const FieldText: React.FC<FieldTextProps> = ({
   name,
   variant = 'outlined',
-  ...otherProps
+  ...fieldProps
 }) => {
   const {
     control,
@@ -34,11 +34,11 @@ export const FieldText: React.FC<FieldTextProps> = ({
   const fieldSchema = schemaObject._def.shape()[name]
   const meta = JSON.parse( fieldSchema.description)
   const label : string = meta['label'] ?? ''
-  otherProps.multiline = (otherProps.multiline===true) || (meta['multiline'] ?? false)
-  const effectiveLabel = otherProps.label || label || ''
+  fieldProps.multiline = (fieldProps.multiline===true) || (meta['multiline'] ?? false)
+  const effectiveLabel = fieldProps.label || label || ''
 
-  const effectiveId = otherProps.id || name
-  const onChangeEnabled = otherProps.onBlur !== undefined
+  const effectiveId = fieldProps.id || name
+  const onChangeEnabled = fieldProps.onBlur !== undefined
   const defaultProps = {
     id: effectiveId,
     name: name,
@@ -58,12 +58,12 @@ export const FieldText: React.FC<FieldTextProps> = ({
 
     switch (variant) {
       case 'filled':
-        return <FilledInput {...commonProps} {...(otherProps as FilledInputProps)} />
+        return <FilledInput {...commonProps} {...(fieldProps as FilledInputProps)} />
       case 'outlined':
-        return <OutlinedInput {...commonProps} {...(otherProps as OutlinedInputProps)} />
+        return <OutlinedInput {...commonProps} {...(fieldProps as OutlinedInputProps)} />
       case 'standard':
       default:
-        return <Input {...commonProps} {...(otherProps as InputProps)} />
+        return <Input {...commonProps} {...(fieldProps as InputProps)} />
     }
   }
 
@@ -89,7 +89,7 @@ export const FieldText: React.FC<FieldTextProps> = ({
             variant={variant}
             label={effectiveLabel}
             {...field}
-            {...(otherProps as MuiTextFieldProps)}
+            {...(fieldProps as MuiTextFieldProps)}
             error={!!errors[name]}
             helperText={errors[name] ? <span>{String(errors[name]?.message)}</span> : null}
           />
