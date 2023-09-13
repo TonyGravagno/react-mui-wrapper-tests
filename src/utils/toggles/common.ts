@@ -1,12 +1,13 @@
-import { MergedValue } from '../../types/toggle'
 import { config } from '@root/app.config'
 import { CheckboxProps } from '@apptypes/toggle'
 import { LabelForComponentOptions, getLabelForComponent } from '@components/FieldLabel'
 
 import CSS from 'csstype'
-export function toggleSetting(lValue: MergedValue) {
+export function getToggleSetting(value: any) {
   let isSet: boolean = false
-  switch (lValue) {
+  switch (
+    value // probably CheckboxProps['value']
+  ) {
     case 'on':
     case 'true':
     case 'checked':
@@ -24,7 +25,7 @@ export function toggleSetting(lValue: MergedValue) {
     case undefined:
     case '':
     case false:
-    default:
+    default: // fall through to default, other details aren't really required
       isSet = false
       break
   }
